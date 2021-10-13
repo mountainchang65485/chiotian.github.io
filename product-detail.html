@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九天購物</title>
+    <link rel="stylesheet" href="css/bootstrap_4.5.2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/m.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+    <link rel="stylesheet" href="css/anime.css">
+    <script src="js/tweenMax.min.js"></script>
+    <script src="js/all.min.js"></script>
+</head>
+<body>
+    <div class="uk-navbar-dropdown pd-list-menu-dropdown">
+        <ul class="uk-nav uk-navbar-dropdown-nav" >
+            <li><a href="product-list.html">人氣商品</a></li>
+            <li><a href="product-list.html">第九屆九天盃太子極限環台賽</a></li>
+            <li><a href="product-list.html">新品推薦</a></li>
+            <li><a href="product-list.html">限量商品</a></li>
+            <li><a href="product-list.html">上衣 / T-shirt</a></li>
+            <li><a href="product-list.html">紀念小物</a></li>
+            <li><a href="product-list.html">特色送禮</a></li>
+            <li><a href="product-list.html">獨家書籍</a></li>
+            <li><a href="product-list.html">文化體驗</a></li>
+            <li><a href="product-list.html">全部商品</a></li>
+        </ul>
+    </div>
+    <div class="uk-position-fixed uk-position-top-center nav-wrap">
+        <nav class="uk-navbar-container uk-navbar-transparent boundary-align" uk-navbar>
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><h1><a href="index.html"><img src="images/logo.png" alt="" id="main-logo"></a></h1></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-center">
+                <ul class="uk-navbar-nav uk-iconnav">
+                    <li><a href="product-cate.html" id="pd-list-menu"><span>商品系列</span></a><span uk-icon="icon: chevron-down"></span></li>
+                    <li><a href="javascript:;">關於九天</a></li>
+                    <li><a href="news-list.html">最新消息</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="https://www.facebook.com/chiotian/"><span class="nav-icon icon-fb" aria-hidden="true" ></span></a></li>
+                    <li>
+                        <a href="javascript:;" class="uk-navbar-toggle"><span class="nav-icon icon-search" aria-hidden="true" ></span></a>
+                        <div class="uk-navbar-dropdown search-wrap" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav">
+            
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand">
+                                    <form class="uk-search uk-search-navbar uk-width-1-1">
+                                        <input class="uk-search-input" type="search" placeholder="搜尋商品" autofocus>
+                                    </form>
+                                </div>
+                                <div class="uk-width-auto">
+                                    <a class="uk-navbar-dropdown-close" href="javascript:;" uk-close></a>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </li>
+                    <li>
+                        <a href="login.html"><span class="nav-icon icon-member" aria-hidden="true" ></span></a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="login.html">會員專區</span></a></li>
+                                <li><a href="member_order.html">查看訂單</a></li>
+                                <li><a href="login.html">登入</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="cart" class="cart" data-totalitems="0"><a href="cart_step_01.html"><span class="nav-icon icon-bag" aria-hidden="true" ></span></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-left side-menu burger">
+                <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="javascript:;"></a>
+            </div>
+        </nav>
+    </div>
+    <div class="overlay"></div>
+    <aside class="nav-hide nav-index">
+        <div id="xx"><span uk-icon="icon: close"></span></div>
+        <div class="nav-side-box" >
+            <div class="container" style="padding: 0;">
+                <ul class="uk-navbar-nav uk-iconnav options">
+                    <li class="">
+                        <a href="product-cate.html">商品系列<span uk-icon="icon: chevron-down"></span></a>
+                        <div uk-dropdown="mode: click" >
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="javascript:;">人氣商品</a></li>
+                                <li><a href="javascript:;">第九屆九天盃太子極限環台賽</a></li>
+                                <li><a href="javascript:;">新品推薦</a></li>
+                                <li><a href="javascript:;">限量商品</a></li>
+                                <li><a href="javascript:;">上衣 / T-shirt</a></li>
+                                <li><a href="javascript:;">紀念小物</a></li>
+                                <li><a href="javascript:;">特色送禮</a></li>
+                                <li><a href="javascript:;">獨家書籍</a></li>
+                                <li><a href="javascript:;">文化體驗</a></li>
+                                <li><a href="javascript:;">全部商品</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=""><a href="javascript:;">關於九天</a></li>
+                    <li class=""><a href="news-list.html">最新消息</a></li>
+                    <li class=""><a href="contact.html">聯絡我們</a></li>
+                </ul>
+                <ul class="media-wrap">
+                    <li><a href="javascript:;"><span class="nav-icon icon-facebook" aria-hidden="true" ></span></a></li>
+                    <li><a href="javascript:;"><span class="nav-icon icon-instagram" aria-hidden="true" ></span></a></li>
+                    <li><a href="javascript:;"><span class="nav-icon icon-youtube2" aria-hidden="true" ></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <header class="banner-cover uk-cover-wrap">
+        <div class="uk-cover-container uk-height-small">
+            <img src="images/banner/banner01.jpg" alt="" uk-cover>
+            <div class="title-wrap uk-position-center">
+               <h2 class="section-title">人氣商品</h2>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <ul class="uk-breadcrumb">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="product-cate.html">商品系列</a></li>
+                    <li><a href="product-list.html">人氣商品</a></li>
+                    <li class="uk-disabled"><span>25周年紀念T-shirt</span></li>
+                </ul>
+                <div class="prev-page"><a href="product-list.html"><span uk-icon="icon: arrow-left"></span>  回人氣商品</a></div>
+            </div>
+            <section id="product">
+                <div class=" row" >
+                    <div class="pd-img-box col-lg-7 col-12">
+                        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper" id="main-pd-img">
+                          <ul class="swiper-wrapper">
+                            <li class="swiper-slide"><img src="images/products/0/0-2.jpg" alt="" class="pd-cover"></li>
+                            <li class="swiper-slide"><img src="images/products/0/0-1.jpg" alt=""></li>
+                            <li class="swiper-slide"><img src="images/products/0/0-0.jpg" alt=""></li>
+                            <li class="swiper-slide"><img src="images/products/0/0-3.jpg" alt=""></li>
+                         </ul>
+                          <div class="swiper-button-next"></div>
+                          <div class="swiper-button-prev"></div>
+                        </div>
+                        <div thumbsSlider="" class="swiper" id="sub-pd-img">
+                            <ul class="swiper-wrapper">
+                                <li class="swiper-slide"><img src="images/products/0/0-2.jpg" alt=""></li>
+                                <li class="swiper-slide"><img src="images/products/0/0-1.jpg" alt=""></li>
+                                <li class="swiper-slide"><img src="images/products/0/0-0.jpg" alt=""></li>
+                                <li class="swiper-slide"><img src="images/products/0/0-3.jpg" alt=""></li>
+                            </ul>
+                        </div>
+                        <!-- <ul id="main-pd-img">
+                            <li><img src="images/products/0/0-0.jpg" alt=""></li>
+                            <li><img src="images/products/0/0-1.jpg" alt=""></li>
+                            <li><img src="images/products/0/0-2.jpg" alt=""></li>
+                            <li><img src="images/products/0/0-3.jpg" alt=""></li>
+                        </ul>
+                        <ul id="sub-pd-img">
+                            <li><img src="images/products/0/0-0.jpg" alt=""></li>
+                            <li><img src="images/products/0/0-1.jpg" alt=""></li>
+                            <li><img src="images/products/0/0-2.jpg" alt=""></li>
+                            <li><img src="images/products/0/0-3.jpg" alt=""></li>
+                        </ul> -->
+                    </div>
+                    <div class="pd-info-box col-lg-5 col-12">
+                        <div class="pd-wrap">
+                            <div class="pd-tltle">
+                                <div class="pd-cate-box">
+                                    <div class="pd-mark">限量</div><p class="pd-cate-name">第九屆九天盃太子極限環台賽</p>
+                                </div>
+                                <h2 class="pd-name">第九屆九天盃太子極限環台賽 – 紀念T-shirt</h2>
+                                <p class="pd-num">型號 : CTC1</p>
+                                <div class="pd-price">
+                                   <p class="product-price-discount">NT$399</p><p class="product-price-before">NT$499</p>
+                                </div>
+                            </div>
+                            <div class="pd-option-wrap">
+                                <div class="pd-option-title">
+                                   <h3>顏色</h3><p id="pd-option-name-color">軍綠色</p>
+                                </div>
+                                <div class="pd-options pd-options-color">
+                                   <input type="radio" id="green" name="color" data-color="軍綠色"><label for="green" style="background-color: #808040;"></label>
+                                   <input type="radio" id="black" name="color" data-color="黑色"><label for="black" style="background-color: #333;"></label>
+                                </div>
+                            </div>
+                            <div class="pd-option-wrap">
+                                <div class="pd-option-title">
+                                   <h3>尺寸</h3><p id="pd-option-name-size"></p>
+                                </div>
+                                <div class="pd-options  pd-options-size">
+                                  <input type="radio" id="size-xs" name="size" data-size="XS"><label for="size-xs">XS</label>
+                                  <input type="radio" id="size-s" name="size" data-size="S"><label for="size-s">S</label>
+                                  <input type="radio" id="size-m" name="size" data-size="M"><label for="size-m">M</label>
+                                  <input type="radio" id="size-l" name="size" data-size="L"><label for="size-l">L</label>
+                                  <input type="radio" id="size-xl" name="size" data-size="XL"><label for="size-xl">XL</label>
+                                </div>
+                            </div>
+                            <div class="pd-option-wrap" >
+                                <div class="pd-option-title">
+                                   <h3>數量</h3><p id="pd-option-name-amount"></p>
+                                </div>
+                                <div class="pd-options  pd-options-amount col-md-6 col-sm-12">
+                                    <input type="button" id="btn-minus" name="amount"><label for="btn-minus" uk-icon="icon: minus"></label>
+                                    <span id="amount-num">1</span>
+                                    <input type="button" id="btn-plus" name="amount"><label for="btn-plus" uk-icon="icon: plus"></label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="pd-add-cart">
+                            <form action="">
+                                <input type="button" value="加入購物車" name="add-cart">
+                                <input type="button" value="立即結帳" name="go-checkout">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="pd-detial">
+                    <div class="intro-title">
+                       <p>商品介紹</p>
+                    </div>
+                    <article class="main-content">
+                        <p>2020年，九天迎來創立25周年，這款專屬紀念T-shirt，也代表25年來珍貴的時光見證。這些年，我們經歷過跌宕起伏，也在成長中嚐到甜美的果實；此刻的九天， 想與你分享這份喜悅，願能陪伴我們一起邁向下一個25周年。</p>
+                        <img src="images/products/0/detail/0.jpg" alt="">
+                        <img src="images/products/0/detail/1.jpg" alt="">
+                        <img src="images/products/0/detail/2.jpg" alt="">
+                        <img src="images/products/0/detail/3.jpg" alt="">
+                        <p class="uk-text-large" style="text-align: center;">紀念T尺寸表</p>
+                        <img src="images/products/0/detail/4.png" alt="">
+                        <p style="text-align: center;">※ 平放尺寸丈量，尺寸容許範圍±2~2.5cm皆為正常值</p>
+                    </article>
+                </div>
+                <div class="share">
+                   <p>分享給好友</p> <a href="javascript:;" class="share-media-line"><i class="fab fa-line"></i></a> <a href="javascript:;" class="share-media-fb"><i class="fab fa-facebook-square"></i></a>  
+                </div>
+            </section>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="footer-box">
+                    <div class=" col-lg-3 col-md-12 col-sm-12 logo-box">
+                        <div  class="col-lg-10 col-md-3 col-sm-4 col-5"><img src="images/logo-icon.png" alt=""></div>
+                    </div>
+                    <div class="link-boxes col-lg-9 col-md-12 col-sm-12 col-sm-12">
+                        <div class="col-md-4 col-sm-12 col-12">
+                            <ul class="box">
+                                <!-- <li class="link_name">Links</li> -->
+                                <li><a href="javascript:;">訂單查詢</a></li>
+                                <li><a href="faq.html">購物Q&A</a></li>
+                                <li><a href="member_notice.html" id="terms">會員須知</a></li>
+                                <li><a href="member_privacy.html" id="privacy" >隱私權政策</a></li> 
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <ul class="box">
+                                <li class="link_name">電話</li>
+                                <li><a href="#">辦公室  04-25653150</a></li>
+                                <li><a href="#">行政部門  04-25653150</a></li>
+                            </ul>
+                            <ul class="box">
+                                <li class="link_name">信箱</li>
+                                <li><a href="#">chiotian12@gmail.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <ul class="box ">
+                                <li class="link_name">社群</li>
+                                <div class="media-icons">
+                                    <a href="https://www.facebook.com/chiotian/"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="javascript:;"><i class="fab fa-instagram"></i></a>
+                                    <a href="javascript:;"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </ul>
+                            <ul class="box">
+                                <li class="link_name">地址</li>
+                                <li><a href="#">42879台中市大雅區清泉路99號</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="copyright">九天民俗技藝團 版權所有 © 2021 All Rights Reserved.</h3>
+        </footer>
+    </main>
+    <script src="js/jquery-3.5.1.compress.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
+    <script src="js/m.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+    <script src="js/tab-hide.js"></script>
+    <script src="js/anime.min.js"></script>
+    <script src="js/fit.js"></script>
+    <script src="js/gsap.js"></script>
+    <script>
+      $('#privacy,#terms').click(function(e) {
+        e.preventDefault();
+        this.blur(); 
+        $.get(this.href, function(html) {
+          $(html).appendTo('body').modal({
+              fadeDuration: 100
+          });
+        });
+      });
+      var swiper = new Swiper("#sub-pd-img", {
+        loop: true,
+        spaceBetween: 5,
+        slidesPerView:4,
+        freeMode: true,
+        watchSlidesProgress: true,
+      });
+      var swiper2 = new Swiper("#main-pd-img", {
+        loop: true,
+        spaceBetween: 0,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+          swiper: swiper,
+        },
+      });
+
+      var amount_num = $('#amount-num').text();
+      if(amount_num > 1){
+         $('label[uk-icon="icon: minus"]').css('color','#333');
+      }else if(amount_num == 1){
+        $('label[uk-icon="icon: minus"]').css('color','#c4c4c4');
+      }
+
+      
+      $('input[name="color"]').click(function(){
+            var color= $(this).data('color').toString();
+            $('#pd-option-name-color').text(color);
+        });
+      $('input[name="size"]').click(function(){
+            var size= $(this).data('size').toString();
+            $('#pd-option-name-size').text(size);
+        });
+
+      $('input[name="add-cart"]').on('click', function () {
+            var cart = $('#cart'),
+                imgtodrag = $('body').find("img.pd-cover").eq(0),
+                cartTotal = cart.attr('data-totalitems'),
+                newCartTotal = parseInt(cartTotal) + 1;
+            if (imgtodrag) {
+                var imgclone = imgtodrag.clone().offset({
+                    top: imgtodrag.offset().top,
+                    left: imgtodrag.offset().left
+                }).css({
+                    'opacity': '0.5',
+                    'position': 'absolute',
+                    'height': 'auto',
+                    'max-width': '600px',
+                    'z-index': '2000'
+                }).appendTo($('body')).animate({
+                    'top': cart.offset().top + 15,
+                    'left': cart.offset().left + 15,
+                    'width': 10,
+                    'height': 10
+                }, 500);
+                
+                setTimeout(function () {
+                    cart.addClass('shake').attr('data-totalitems', newCartTotal);
+                }, 500);
+                setTimeout(function () {
+                    cart.removeClass('shake');
+                }, 1000);
+        
+                imgclone.animate({
+                    'width': 0,
+                    'height': 0
+                },function() {
+                    $(this).detach()
+                });
+        } 
+});
+    </script>
+    
+</body>
+</html>

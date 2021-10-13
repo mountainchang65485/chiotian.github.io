@@ -1,0 +1,53 @@
+body{ background-size: cover; background-attachment: fixed; }
+/* .prev-page a{ color: #fff; } */
+/* span[uk-icon="icon: arrow-left"] {
+    border-radius: 50px;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+} */
+
+/* NEWS==================================================== */
+#news {padding-bottom: 90px; overflow: hidden;}
+#news .uk-card-media-bottom { height: 200px; width: 100%;  }
+#news .uk-card-media-bottom img{ height: 100%; width: 100%; object-fit: cover; object-position: center; }
+h3.uk-card-title{ margin-top: 20px;font-weight: 500;  font-family: 'Noto Sans TC', sans-serif;  font-size: 1.05rem; text-align: justify;}
+.uk-card-body p{ text-align: justify;}
+.article-tag{ display: flex; justify-content: space-between; align-items: center; }
+h4.news-tag,p.time{ margin: 0; font-size: 1rem;}
+h4.news-tag{ -webkit-text-decoration-line:underline; /* Safari */ text-decoration-line: underline; }
+#news .btn-wrap{margin-top: 30px;}
+#news .btn-more{ border:1px solid #fff; background: none;color: #fff;}
+h2.main-title {  font-family: 'Noto Sans TC', sans-serif;  font-size: 2rem; margin-bottom: 5px; }
+p.update-date{margin-top: 0;}
+.main-paragraph p{ font-size: 1rem; line-height: 1.8; color: #222; text-align: justify;}
+/* .article-wrap{ margin-left: -40px; margin-right: 0;} */
+/* .article-list-wrap{margin-right:-40px;} */
+a.card-wrap{ display: block; }
+.uk-card{ padding: 0; }
+.filter-box li{ display: inline-block; width: 25%; padding:0px 10px;}
+.filter-box button{ width: 100%; padding:5px 10px; color: #fff; border-radius: 5px;}
+.filter-box button:hover{ color: #fff; background-color: rgba(255, 255, 255, 0.3);}
+.uk-button-default.uk-active, .uk-button-default:active {
+    background-color: #fff;
+    color: #222;
+    border-color: #999;
+}
+/* @media screen and (max-width:1199px) {
+    .article-wrap{ margin-left: -30px; }
+    .article-list-wrap{margin-right:-30px;}
+} */
+@media screen and (max-width:640px) {
+   #news a.card-wrap{ margin-top: 0; }
+   .filter-box li{ width: 50%;}
+}
+
+.uk-pagination > .uk-active > * {
+    background-color: #fff;
+    border-radius: 3px;
+    color: rgb(102, 102, 102);
+}
+/* SHARE ==================================================== */
+.share{ display: flex; justify-content: center; align-items: center; }
+.share p{ margin: 0; margin-right: 10px; font-size: 1.25rem;font-family: 'Noto Sans TC', sans-serif; font-weight: 400;} 
+.share a{ font-size: 2rem; padding: 5px; }
+a.share-media-line{ color: #3ACE01 !important; }

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九天購物</title>
+    <link rel="stylesheet" href="css/bootstrap_4.5.2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/m.css">
+    <link rel="stylesheet" href="css/article-list.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/anime.css">
+    <script src="js/tweenMax.min.js"></script>
+    <style>
+        html{ background: #000; }
+        body{ background:url(../images/banner/index_bg_08.jpg)no-repeat; background-size: cover; background-attachment: fixed; }
+        .question{ display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-end; margin-bottom: 15px; cursor: pointer;}
+        .question-title { width: 100%; display: flex; justify-content: space-between; align-items: center;  }
+        .question-title-txt{  background: rgba(255, 255, 255, 0.3);display: flex; justify-content: space-between; align-items: center; padding: 10px 15px;}
+        .question-title-num{ text-align: center; position: relative;}
+        .question-title-num > span{ color: #222; position: relative; }
+        /* .question-title-num > span::before { content:'Q'; font-size: 2.5rem; position: absolute; width: 50px; height: 50px; color: #fff;  top: 50%; left: 50%; transform: translate(-50%,-50%);} */
+        
+        .question-title-num:before {
+            content:url('images/icon/comment-alt-solid.svg');
+            width: 65%;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-35%);
+            z-index: 0;}
+        @media screen and (max-width:1199px) {
+        .question-title-num:before {
+            width:70%;}
+        }
+        @media screen and (max-width:767px) {
+        .question-title-num:before {
+            width:80%;}
+            .question-title-num{transform: translateX(-5px);}
+        }
+        .question-title h4{ color: #fff;}
+        .question-btn { width: 30px; height: 30px; position: relative; border: none; background-color: transparent;}
+        .question-btn span{ width: 100%; height: 100%; color: #fff; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+        .plus-icon { display: block; }
+        .minus-icon { display: none;} 
+        .question-text {
+           /* display: none; */
+           padding: 0px;
+           background: rgba(255, 255, 255, 1);
+           margin-top: 15px;
+           height: 0;
+           position: relative;
+           overflow: hidden;
+           transition-property:opacity, height ;transition: 0.3s;
+        }
+        .question-text p{ color: #222; position: absolute;}
+        /* 顯示回答區域*/
+        .show-text .question-text { display: block;padding:15px; transition-property:opacity, height !important;transition: 0.3s; }
+        .show-text .question-text p { position: relative; }
+        /* 顯示關閉按鈕*/
+        .show-text .minus-icon { display: inline; }
+        /* 隱藏開啟按鈕*/
+        .show-text .plus-icon { display: none;} 
+    </style>
+</head>
+<body>
+    <div class="uk-navbar-dropdown pd-list-menu-dropdown">
+        <ul class="uk-nav uk-navbar-dropdown-nav" >
+            <li><a href="product-list.html">人氣商品</a></li>
+            <li><a href="product-list.html">第九屆九天盃太子極限環台賽</a></li>
+            <li><a href="product-list.html">新品推薦</a></li>
+            <li><a href="product-list.html">限量商品</a></li>
+            <li><a href="product-list.html">上衣 / T-shirt</a></li>
+            <li><a href="product-list.html">紀念小物</a></li>
+            <li><a href="product-list.html">特色送禮</a></li>
+            <li><a href="product-list.html">獨家書籍</a></li>
+            <li><a href="product-list.html">文化體驗</a></li>
+            <li><a href="product-list.html">全部商品</a></li>
+        </ul>
+    </div>
+    <div class="uk-position-fixed uk-position-top-center nav-wrap">
+        <nav class="uk-navbar-container uk-navbar-transparent boundary-align" uk-navbar>
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><h1><a href="index.html"><img src="images/logo.png" alt="" id="main-logo"></a></h1></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-center">
+                <ul class="uk-navbar-nav uk-iconnav">
+                    <li><a href="product-cate.html" id="pd-list-menu"><span>商品系列</span></a><span uk-icon="icon: chevron-down"></span></li>
+                    <li><a href="javascript:;">關於九天</a></li>
+                    <li><a href="news-list.html">最新消息</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="https://www.facebook.com/chiotian/"><span class="nav-icon icon-fb" aria-hidden="true" ></span></a></li>
+                    <li>
+                        <a href="javascript:;" class="uk-navbar-toggle"><span class="nav-icon icon-search" aria-hidden="true" ></span></a>
+                        <div class="uk-navbar-dropdown search-wrap" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav">
+            
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand">
+                                    <form class="uk-search uk-search-navbar uk-width-1-1">
+                                        <input class="uk-search-input" type="search" placeholder="搜尋商品" autofocus>
+                                    </form>
+                                </div>
+                                <div class="uk-width-auto">
+                                    <a class="uk-navbar-dropdown-close" href="javascript:;" uk-close></a>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </li>
+                    <li>
+                        <a href="login.html"><span class="nav-icon icon-member" aria-hidden="true" ></span></a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="login.html">會員專區</span></a></li>
+                                <li><a href="member_order.html">查看訂單</a></li>
+                                <li><a href="login.html">登入</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="cart" class="cart" data-totalitems="0"><a href="cart_step_01.html"><span class="nav-icon icon-bag" aria-hidden="true" ></span></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-left side-menu burger">
+                <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="javascript:;"></a>
+            </div>
+        </nav>
+    </div>
+    <div class="overlay"></div>
+    <aside class="nav-hide nav-index">
+        <div id="xx"><span uk-icon="icon: close"></span></div>
+        <div class="nav-side-box" >
+            <div class="container" style="padding: 0;">
+                <ul class="uk-navbar-nav uk-iconnav options">
+                    <li class="">
+                        <a href="product-cate.html">商品系列<span uk-icon="icon: chevron-down"></span></a>
+                        <div uk-dropdown="mode: click" >
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="javascript:;">人氣商品</a></li>
+                                <li><a href="javascript:;">第九屆九天盃太子極限環台賽</a></li>
+                                <li><a href="javascript:;">新品推薦</a></li>
+                                <li><a href="javascript:;">限量商品</a></li>
+                                <li><a href="javascript:;">上衣 / T-shirt</a></li>
+                                <li><a href="javascript:;">紀念小物</a></li>
+                                <li><a href="javascript:;">特色送禮</a></li>
+                                <li><a href="javascript:;">獨家書籍</a></li>
+                                <li><a href="javascript:;">文化體驗</a></li>
+                                <li><a href="javascript:;">全部商品</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=""><a href="javascript:;">關於九天</a></li>
+                    <li class=""><a href="news-list.html">最新消息</a></li>
+                    <li class=""><a href="contact.html">聯絡我們</a></li>
+                </ul>
+                <ul class="media-wrap">
+                    <li><a href="javascript:;"><span class="nav-icon icon-facebook" aria-hidden="true" ></span></a></li>
+                    <li><a href="javascript:;"><span class="nav-icon icon-instagram" aria-hidden="true" ></span></a></li>
+                    <li><a href="javascript:;"><span class="nav-icon icon-youtube2" aria-hidden="true" ></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <header class="banner-cover uk-cover-wrap">
+        <div class="uk-cover-container uk-height-small">
+            <img src="images/banner/banner01.jpg" alt="" uk-cover>
+            <div class="title-wrap uk-position-center">
+               <h2 class="section-title">購物Q&A</h2>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="breadcrumb">
+            <ul class="uk-breadcrumb">
+                <li><a href="index.html">首頁</a></li>
+                <li class="uk-disabled"><a href="javascript:;">購物Q&A</a></li>
+            </ul>
+            <div class="prev-page"><a href="product-cate.html"><span uk-icon="icon: arrow-left"></span>  回上一頁</a></div>
+        </div>
+        <div  id="news">
+            <section class="col-12 uk-padding-remove">
+                <!-- <div class="title">
+                    <h2>general questions</h2>
+                </div> -->
+                <!-- Q&A -->
+                <div class="section-center">
+                    <ul id="qa-list" class="uk-padding-remove">
+                        <li class="question">
+                            <div class="question-title">
+                                <div class="question-title-num col-lg-1 col-md-1 col-sm-1 col-2">
+                                    <span class="uk-position-center">Q1</span>
+                                </div>
+                                <div class="question-title-txt col-lg-11  col-md-11  col-sm-11 col-10 ">
+                                    <h4 class="uk-margin-remove-bottom">付款方式</h4>
+                                    <button type="button" class="question-btn">
+                                        <span class="plus-icon">
+                                            <i class="fas fa-plus uk-position-center"></i>
+                                        </span>
+                                        <span class="minus-icon">
+                                            <i class="fas fa-minus uk-position-center"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="question-text col-lg-11 col-md-11 col-sm-11 col-10">
+                                <p>1.信用卡:支援MASTER/VISA/JCB/銀聯等發卡組織，消費者可於線上進行付款。<br>
+                                    2.網路ATM : 消費者需自備讀卡機，插入晶片金融卡後完成轉帳付款。 持兆豐國際商銀/臺灣土地銀行/元大銀行/永豐銀行/臺灣銀行/中國信託/台新銀行之發行金融卡繳費即免跨行手續費，若選擇其他網路銀行須支付跨行手續費 15 元。<br>
+                                    3.ATM虛擬帳號：訂單結帳後依系統提供之虛擬代碼至ATM或網路銀行繳費。<br>
+                                    4.超商條碼 : 請至超商機台輸入代碼，產生繳費單後前往櫃台繳費。 (超商代碼的繳費期限為7天，請務必於期限內進行繳款)<br>
+                                    備註1 : 實際支付金額為商品單價+運費。<br>
+                                    備註2 : 如訂單未依據時效內進行繳費或刷卡失敗，將取消訂單。<br>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="question">
+                            <div class="question-title">
+                                <div class="question-title-num col-sm-1 col-2">
+                                    <span class="uk-position-center">Q2</span>
+                                </div>
+                                <div class="question-title-txt col-sm-11 col-10 ">
+                                    <h4 class="uk-margin-remove-bottom">寄送說明</h4>
+                                    <button type="button" class="question-btn">
+                                        <span class="plus-icon">
+                                            <i class="fas fa-plus uk-position-center"></i>
+                                        </span>
+                                        <span class="minus-icon">
+                                            <i class="fas fa-minus uk-position-center"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="question-text col-sm-11 col-10">
+                                <p>1. 訂單成立後7個工作日內寄出商品，預計14個工作日送達商品。(不含六日及國定假日)。<br><br>
+
+                                    2.每筆訂單運費70元。<br>
+                                    
+                                    備註1 : 離島同樣支援線上付費，但運費另計，如是離島訂單請先撥打電話或發信通知。<br>
+                                    
+                                    備註2 : 目前不支援海外線上付費，如有需求請先撥打電話或發信通知。<br><br>
+                                    
+                                    3. 會員可自行於網站中查詢商品出貨情形。<br>
+                                    請先申請成為會員，點選網頁右上方「訂單查詢」，查看需查詢的訂單。<br>
+                                    出貨完成後，會員將收到「出貨通知信」，出貨後約1-5個工作天運送到會員指定之收件地址。<br><br>
+                                    
+                                    4. 如需指定收貨時間，請在下訂單之後的「資料填寫」→「配送時段」中進行勾選。<br><br>
+                                    
+                                    5. 如發票需有抬頭及統編，請在下訂單之後的「資料填寫」→「發票資訊」→「三聯式發票」中進行填寫。<br><br>
+                                    
+                                    6. 如在訂單成立後發現收件地址錯誤，請立即來電或來信與我們聯絡。<br>
+                                    ( 如訂單已進入「已出貨」階段恕無法修正。)
+                                </p>
+                            </div>
+                        </li>
+                        <li class="question">
+                            <div class="question-title">
+                                <div class="question-title-num col-sm-1 col-2">
+                                    <span class="uk-position-center">Q3</span>
+                                </div>
+                                <div class="question-title-txt col-sm-11 col-10 ">
+                                    <h4 class="uk-margin-remove-bottom">退換貨說明</h4>
+                                    <button type="button" class="question-btn">
+                                        <span class="plus-icon">
+                                            <i class="fas fa-plus uk-position-center"></i>
+                                        </span>
+                                        <span class="minus-icon">
+                                            <i class="fas fa-minus uk-position-center"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="question-text col-sm-11 col-10">
+                                <p>1.九天柑仔店將在出貨時附上「商品明細表」，為確保您的權益，請會員開啟商品時全程錄影， 核對表單上及商品內之內容，若發現與原訂購商品不符、在宅配運送中有損毀、商品本身缺陷或瑕疵，請在收到商品3天內來電或來信與我們聯絡，以便為您做後續之處理。
+                                    <br><br>
+                                    2.依《消費者保護法》的規定，消費者享有商品貨到日起七天鑑賞期之權益。 注意！鑑賞期並非商品試用期，消費者所辦理退貨之產品必須保持全新、吊牌未拆且含整份包裝及出貨單、發票，若有遺失、損毀或使用痕跡，將影響會員之退貨權益及退費權益。
+                                </p>
+                            </div>
+                        </li>
+                        <li class="question">
+                            <div class="question-title">
+                                <div class="question-title-num col-sm-1 col-2">
+                                    <span class="uk-position-center">Q4</span>
+                                </div>
+                                <div class="question-title-txt col-sm-11 col-10 ">
+                                    <h4 class="uk-margin-remove-bottom">退款說明</h4>
+                                    <button type="button" class="question-btn">
+                                        <span class="plus-icon">
+                                            <i class="fas fa-plus uk-position-center"></i>
+                                        </span>
+                                        <span class="minus-icon">
+                                            <i class="fas fa-minus uk-position-center"></i>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="question-text col-sm-11 col-10">
+                                <p>1.商品確認回收後，將依據不同繳款方式進行退款作業。<br><br>
+
+                                    2. 因繳款方式不同，退款方式分為以下兩種：<br><br>
+                                    
+                                    (1)信用卡付款：<br><br>
+                                    我們將透過綠界科技-第三方金流協助您辦理退刷作業。退刷申請後非立即退刷完成，發卡銀行需要預計7-14個工作天(不含假日)退刷完成，實際退款作業流程將依發卡銀行為主。
+                                    
+                                    (2)網路ATM、超商條碼：<br><br>
+                                    請會員與九天民俗技藝團聯繫退款。付款成功之訂單即產生手續費，若會員欲退款，手續費恕不退還。
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-box">
+                <div class=" col-lg-3 col-md-12 col-sm-12 logo-box">
+                    <div  class="col-lg-10 col-md-3 col-sm-4 col-5"><img src="images/logo-icon.png" alt=""></div>
+                </div>
+                <div class="link-boxes col-lg-9 col-md-12 col-sm-12 col-sm-12">
+                    <div class="col-md-4 col-sm-12 col-12">
+                        <ul class="box">
+                            <!-- <li class="link_name">Links</li> -->
+                            <li><a href="javascript:;">訂單查詢</a></li>
+                            <li><a href="faq.html">購物Q&A</a></li>
+                            <li><a href="member_notice.html" id="terms">會員須知</a></li>
+                            <li><a href="member_privacy.html" id="privacy" >隱私權政策</a></li> 
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <ul class="box">
+                            <li class="link_name">電話</li>
+                            <li><a href="#">辦公室  04-25653150</a></li>
+                            <li><a href="#">行政部門  04-25653150</a></li>
+                        </ul>
+                        <ul class="box">
+                            <li class="link_name">信箱</li>
+                            <li><a href="#">chiotian12@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <ul class="box ">
+                            <li class="link_name">社群</li>
+                            <div class="media-icons">
+                                <a href="https://www.facebook.com/chiotian/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="javascript:;"><i class="fab fa-instagram"></i></a>
+                                <a href="javascript:;"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </ul>
+                        <ul class="box">
+                            <li class="link_name">地址</li>
+                            <li><a href="#">42879台中市大雅區清泉路99號</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="copyright">九天民俗技藝團 版權所有 © 2021 All Rights Reserved.</h3>
+    </footer>
+    <script src="js/jquery-3.5.1.compress.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/m.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+    <script src="js/tab-hide.js"></script>
+    <script src="js/anime.min.js"></script>
+    <script src="js/fit.js"></script>
+    <script src="js/gsap.js"></script>
+    <script src="js/all.min.js"></script>
+    <script>
+        $('.question').on('click',function(){ 
+			   var buf_height = $(this).find('.question-text p').height();
+               console.log(buf_height);
+               $(this).toggleClass('show-text').stop().find('.question-text').animate( {
+						height:buf_height + 'px',
+                        easing:'easeInCubic'
+				});
+               $('.question').not(this).removeClass("show-text").stop().find('.question-text').animate( {
+						height: '0px',
+                        easing:'easeInCubic'
+				});
+        });
+        $('#privacy,#terms').click(function(e) {
+          e.preventDefault();
+          this.blur(); 
+          $.get(this.href, function(html) {
+            $(html).appendTo('body').modal({
+                fadeDuration: 100
+            });
+          });
+        });
+    </script>
+</body>
+</html>

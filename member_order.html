@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="UTF">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九天購物</title>
+    <link rel="stylesheet" href="css/bootstrap_4.5.2.min.css">
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/m.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/anime.css">
+    <script src="js/tweenMax.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <style>
+        body{ background-color: #efefef; }
+        header{ background: #fff; padding: 16px 12px; display: flex; justify-content: space-between; align-items: center;}
+        .header-name{  display: flex; justify-content:left; align-items: center; }
+        .header-name h3{ font-family:'Noto Sans TC', sans-serif; font-weight: 400; line-height: 1;}
+        .header-icon{ font-size: 24px; margin-right: 10px;}
+        p.alert{ color: #d80000; }
+        main{display: flex;justify-content: space-between;align-items: flex-start; padding-top: 10%;}
+         @media screen and (max-width:992px) {
+               main{ padding-top:15%;}
+         }
+         @media screen and (max-width:959px) {
+               main{ padding-top:15%;}
+               .membership-id{ padding-left: 0; }
+         }
+         @media screen and (max-width:768px) {
+               main{ padding-top:20%; height: 100%;}
+         }
+         @media screen and (max-width:639px) {
+               main{ padding-top:calc(20% + 30px) ; flex-direction: column-reverse;}
+         }
+        .membership-detail{ height: 100%;}
+        .membership-qrcode{ text-align: center;  display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px;}
+        .membership-cover { background: #333; padding: 20px; margin: 0; margin-bottom: 20px; border-radius: 6px;}
+        .membership-card{  background: url(images/member/bg-card.jpg)no-repeat;background-size: cover; background-position: center; overflow-y: hidden; border-radius: 6px; border: 1px solid #c4c4c4; padding-top: 50%; position: relative;}
+        .membership-card-detial{ color: #fff; text-align: center;}
+        .membership-card-detial h2{ color: #fff;}
+        .membership-info{ background-color: #fff; }
+        .membership-info-wrap{ margin-left: 0; }
+        .membership-info-table{padding-right: 0px; padding-left: 0;}
+        .membership-id-btn{ padding-left: 15px; }
+        .my-name-box h2,.my-name-box p{ display: inline-block; color: #fff;}
+        td.t-content{ text-align: left; }
+        .td-title{ background: #333; color: #fff; text-align: center;}
+        .td-title p{ display: inline-block; }
+        .uk-flex-wrap-between{ justify-content: space-between; }
+        .color-gray-light{ color: #c4c4c4; }
+        
+        @media screen and (max-width:959px) {
+            .membership-info-wrap{ display: flex; flex-direction: column-reverse; justify-content: center; align-items: center; margin-left: 0;}
+            .membership-info-table{padding: 0;}
+         }
+        @media screen and (max-width:639px) {
+            .membership-id-btn{ padding-left: 0; }
+            .membership-id-info{ margin-bottom: 15px; }
+            .uk-table tr{ display:flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 15px;}
+            .uk-table tr td{ width: 100%; }
+            td.td-title{ padding: 10px 12px; }
+            td.td-content{ background: #fff;}
+            .membership-info{ background-color: transparent; }
+        }
+        @media screen and (max-width:460px) {
+            .membership-id-number{flex-direction: column;}
+        }
+
+        /* SIDE MENU ========================================================*/
+        aside.pd-cate-wrap{ padding: 10px;  background-color: #fff; border-radius: 3px;}
+        .aside-wrap{padding-right: 20px;}
+        @media screen and (max-width:639px) {
+            .aside-wrap{display: none;}
+        }
+        ul.pd-cate{ padding-left: 0; }
+        ul.pd-cate li { border-bottom: 1px solid rgba(51, 51, 51, 0.15); transition: 0.3s;}
+        ul.pd-cate li a{  color: #333; padding: 16px 12px; display: block; font-family:'Noto Sans TC', sans-serif; font-weight: 400; font-size: 1rem; line-height: 1;}
+        ul.pd-cate li:hover a{ color: #E14E2D;  transition: 0.3s;}
+        ul.pd-cate li.list-active a{ color: #E14E2D;}
+        .pd-cate-icon{ margin-right:10px;font-size: 1.1rem; }
+
+        /* FORM ========================================================*/
+        input,select,.uk-checkbox, .uk-radio{ border-radius: 3px !important; }
+        .flex-md{ display: flex; justify-content: left; align-items: center; }
+        .uk-radio:checked,.uk-radio:focus{ background: url(images/icon/check-solid.svg)no-repeat,#222; background-size: 70% auto; background-position: center; }
+        .must{position: relative; }
+        .must::before{ content: '*'; position: absolute; width: 10px; height: 10px; font-size: 15px; color: #f0506e;top: 0;left:-12px;}
+        .uk-form-danger{ border-radius: 3px; margin-left: 10px; max-width: 130px; width: auto;}
+        .uk-form-danger:hover{ background: #f0506e; color: #fff;}
+        ::placeholder { color: #222; opacity: 1; } 
+        ::-webkit-input-placeholder {  color: #222 !important; } 
+        :-ms-input-placeholder { color: #222; } 
+        ::-ms-input-placeholder { color: #222; } 
+        .sub-detial{ padding-left: 29px; margin: 0; color: #999;}
+        .uk-select:not([multiple]):not([size]){  
+            padding-right: 20px;
+            background-image: url(images/icon/dropdown.svg);
+            background-repeat: no-repeat;
+            background-size: 24px auto;
+            background-position: 98% 50%; }
+        .btn-verse{  border: 1px solid #333; text-align: center; }
+        .state-list-btn a{ padding: 0; }
+        .state-list{ border-left: 1px solid #c4c4c4; }
+        @media (min-width: 960px){
+            .uk-form-horizontal .uk-form-label { width: 120px; margin-top: 7px; float: left; }
+            .uk-form-horizontal .uk-form-controls { margin-left: 120px; }
+        }
+        .btn-wrap{ display: flex; justify-content:center; align-items: center;}
+        @media screen and (max-width:960px) {
+            .btn-wrap{  width:80%; margin: auto;}
+        }
+        @media screen and (max-width:767px) {
+            .btn-wrap{  flex-direction:column; justify-content:center; align-items: center; width: 90%; margin: auto;}
+            .btn-verse{ margin-right: 0px; margin-bottom: 15px;}
+            a.btn-more{ width: 100%; }
+        }
+        @media screen and (max-width:639px) {
+            .btn-wrap{ flex-direction:column; justify-content:center; align-items: center; width: 100%;}
+        }  
+        .pd-row{ display: flex; justify-content:space-between; align-items: center; padding: 15px; border-bottom: 1px solid #efefef;}
+        .pd-row *:not(button){ padding-right: 0; }
+        .info-row{display: flex; justify-content:flex-start; align-items: center;}
+        .btn-crud-wrap{ display: flex; justify-content:flex-start; align-items: center; padding: 0;}
+        .price{ text-align: end; }
+        .pd-img-wrap{ display: flex; justify-content:space-between; align-items: center;  }
+        .state-wrap{  display: flex; justify-content:space-between; align-items: center; flex-wrap: wrap;}
+        .img-cover{position: relative;}
+        .img-cover:nth-of-type(1){ margin-right: 5px;}
+        /* @media screen and (max-width:991px) {
+            .state-wrap{  flex-direction: column; justify-content:space-between; align-items: left; }
+        }   */
+        @media screen and (max-width:768px) {
+            .pd-row{ background: #fff; }
+            .info-row{ padding: 0;}
+            .info-row-detail{ flex-direction: column; }
+            .btn-crud-wrap{ display: flex; justify-content:flex-start; align-items: center;}
+            .pd-detail-wrap{ padding-left: 0px; }
+            .state-list-btn .btn-verse{ height: 25px; line-height:1.75; font-size: 13px; width: 100%;}
+        }  
+        @media screen and (max-width:575px) {
+            /* .pd-row{  flex-direction: column; } */
+            .pd-detail-wrap{ flex-direction: column; }
+            .pd-row{ margin-bottom: 10px; }
+            .state-list-btn{ padding-left: 0; margin-top: 5px;}
+        } 
+        @media screen and (max-width:480px) {
+            .pd-row{ padding:10px 15px; align-items:center;}
+            .pd-img-wrap{ flex-direction: column; justify-content:center; align-items: center;  }
+            .img-cover:nth-of-type(1){ display: none; }
+            .pd-detail-wrap p{ font-size: 13px; }
+        }  
+        .uk-button-small{ padding:5px; margin-right: 5px; margin-left: 5px; width:40px; height:40px; border-radius: 3px; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+        .btn-crud-wrap .uk-button-small.uk-button-danger{ margin-left:0 !important ; }
+        .pd-detail-wrap{ display: flex; justify-content: space-between; align-items: center; }
+        .pd-detail-wrap h4{ line-height: 1;margin-bottom: 5px; }
+        .pd-specs{ margin-bottom: 10px; }
+        .uk-comment-avatar{ width: 100%;}
+        .price-wrap{ justify-content: flex-end; }
+        .price-wrap h4{ text-align: end; }
+        .pd-specs li{ color: #b1b1b1; font-size: small;}
+        .step-wrap{ justify-content: space-around; }
+        .step-box{ display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .step-num{ width: 30px; height: 30px; border-radius: 40px; border: 1px solid #333; justify-content: center; }
+        .step-active{  border: 1px solid #d80000; color: #fff; background-color: #d80000;}
+        .step-info{ margin-top:5px; }
+        .break{display: none;}
+        .pd-options{ display: flex;justify-content: left; align-items: center; }
+        .pd-options-amount{ display: flex; justify-content: space-between; align-items: center; padding: 5px;  border-radius: 3px; border: none;}
+        .pd-options input[name="amount"] + label { display: flex;flex-direction: column; justify-content: center; align-items: center; cursor: pointer; width:30px;height: 30px; border-radius: 3px; margin-right: 10px;}
+        .pd-options input[name="amount"]{ display: inline-block; }  
+        .pd-options input[name="amount"] + label {margin: 0;}
+        .sum-title{ font-size: 15px; }
+        .sum-title{ text-align: right; }
+        .total-wrap{ background: #666; padding-top: 10px; padding-bottom: 10px;}
+        .total-wrap p{ color: #fff; }
+        .conferm-box{ justify-content: flex-end; }
+        .shop-info{ color: #333; }
+        .pd-list-title{ padding: 15px;}
+        .pd-list-title p{ color: #fff; }
+        .title-amount{ text-align: center;}
+        .title-price{ text-align: end;}
+        .btn-back{ border: unset; background: transparent; color: #333;}
+        .uk-overlay-default{ background-color: rgba(0, 0, 0, 0.356);color: #fff;}
+        @media screen and (max-width:991px) {
+            .pd-detail-wrap{ flex-direction: column; justify-content: flex-start;}
+            .state-list{ padding-left: 0; }
+            .state-list button{ margin: 0 !important; }
+            .state-list{  text-align: center;}
+            .state-list-title-wrap{ display: none; }
+        }  
+        @media screen and (max-width:767px) {
+            .pd-detail-wrap{ flex-direction: column; }
+            .price-wrap h4{ margin-top: 15px; }
+            .pd-options-amount{  padding:0 5px; }
+            .amount-num,.amount-title,.uk-form-danger{ font-size: 13px; }
+            .amount-btn-wrap button{ width: auto; height:30px; padding: 0 10px;}
+            .title-amount,.title-price{ display: none;}
+            .sum-title{ font-size: 14px; }
+        }  
+        @media screen and (max-width:575px) {
+            .price-wrap h4{ margin-top: 15px; }
+            .step-wrap{ justify-content: space-between; align-items: flex-start; }
+            .step-box{ display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; }
+            .step-num{ width: 25px; height: 25px; font-size:0.95rem; }
+            .step-info{ font-size: 0.75rem; }
+            .break{display: block;}
+            .pd-options input[name="amount"] + label { width: 25px; height: 25px; }
+            .pd-options input[name="amount"] + label svg{ width: 15px; height: 15px; }
+            .amount-btn-wrap button{ width: auto; height: 25px; }
+            .amount-btn-wrap input{ height: 25px; }
+            .sum-wrap{ padding: 0; }
+            .sum-title{ text-align: left; }
+            .total-wrap{ margin-right: -15px; margin-left: -15px; padding: 10px 0px; position: relative;}
+            .total-wrap::before{ content: ''; position: absolute; width: 15px; height: 100%; background: #666; left: -15px; top: 0;}
+            .total-wrap::after{ content: ''; position: absolute; width: 15px; height: 100%; background: #666; right: -15px; top: 0;}
+        } 
+
+    </style>
+</head>
+<body>
+    <div class="uk-navbar-dropdown pd-list-menu-dropdown">
+        <ul class="uk-nav uk-navbar-dropdown-nav" >
+            <li><a href="product-list.html">人氣商品</a></li>
+            <li><a href="product-list.html">第九屆九天盃太子極限環台賽</a></li>
+            <li><a href="product-list.html">新品推薦</a></li>
+            <li><a href="product-list.html">限量商品</a></li>
+            <li><a href="product-list.html">上衣 / T-shirt</a></li>
+            <li><a href="product-list.html">紀念小物</a></li>
+            <li><a href="product-list.html">特色送禮</a></li>
+            <li><a href="product-list.html">獨家書籍</a></li>
+            <li><a href="product-list.html">文化體驗</a></li>
+            <li><a href="product-list.html">全部商品</a></li>
+        </ul>
+    </div>
+    <div class="uk-position-fixed uk-position-top-center nav-wrap">
+        <nav class="uk-navbar-container uk-navbar-transparent boundary-align" uk-navbar>
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><h1><a href="index.html"><img src="images/logo.png" alt="" id="main-logo"></a></h1></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-center">
+                <ul class="uk-navbar-nav uk-iconnav">
+                    <li><a href="product-cate.html" id="pd-list-menu"><span>商品系列</span></a><span uk-icon="icon: chevron-down"></span></li>
+                    <li><a href="javascript:;">關於九天</a></li>
+                    <li><a href="news-list.html">最新消息</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="https://www.facebook.com/chiotian/"><span class="nav-icon icon-fb" aria-hidden="true" ></span></a></li>
+                    <li>
+                        <a href="javascript:;" class="uk-navbar-toggle"><span class="nav-icon icon-search" aria-hidden="true" ></span></a>
+                        <div class="uk-navbar-dropdown search-wrap" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav">
+            
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand">
+                                    <form class="uk-search uk-search-navbar uk-width-1-1">
+                                        <input class="uk-search-input" type="search" placeholder="搜尋商品" autofocus>
+                                    </form>
+                                </div>
+                                <div class="uk-width-auto">
+                                    <a class="uk-navbar-dropdown-close" href="javascript:;" uk-close></a>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </li>
+                    <li>
+                        <a href="login.html"><span class="nav-icon icon-member" aria-hidden="true" ></span></a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="login.html">會員專區</span></a></li>
+                                <li><a href="member_order.html">查看訂單</a></li>
+                                <li><a href="login.html">登入</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="cart" class="cart" data-totalitems="0"><a href="cart_step_01.html"><span class="nav-icon icon-bag" aria-hidden="true" ></span></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-left side-menu burger">
+                <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="javascript:;"></a>
+            </div>
+        </nav>
+    </div>
+    <div class="overlay"></div>
+    <aside class="nav-hide nav-index">
+        <div id="xx"><span uk-icon="icon: close"></span></div>
+        <div class="nav-side-box" >
+            <div class="container" style="padding: 0;">
+                <ul class="uk-navbar-nav uk-iconnav options">
+                    <li class="">
+                        <a href="product-cate.html">商品系列<span uk-icon="icon: chevron-down"></span></a>
+                        <div uk-dropdown="mode: click" >
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="javascript:;">人氣商品</a></li>
+                                <li><a href="javascript:;">第九屆九天盃太子極限環台賽</a></li>
+                                <li><a href="javascript:;">新品推薦</a></li>
+                                <li><a href="javascript:;">限量商品</a></li>
+                                <li><a href="javascript:;">上衣 / T-shirt</a></li>
+                                <li><a href="javascript:;">紀念小物</a></li>
+                                <li><a href="javascript:;">特色送禮</a></li>
+                                <li><a href="javascript:;">獨家書籍</a></li>
+                                <li><a href="javascript:;">文化體驗</a></li>
+                                <li><a href="javascript:;">全部商品</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=""><a href="javascript:;">關於九天</a></li>
+                    <li class=""><a href="news-list.html">最新消息</a></li>
+                    <li class=""><a href="contact.html">聯絡我們</a></li>
+                </ul>
+                <ul class="media-wrap">
+                    <li><a href="javascript:;"><span class="nav-icon icon-facebook" aria-hidden="true" ></span></a></li>
+                    <li><a href="javascript:;"><span class="nav-icon icon-instagram" aria-hidden="true" ></span></a></li>
+                    <li><a href="javascript:;"><span class="nav-icon icon-youtube2" aria-hidden="true" ></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <div class="uk-container uk-container-large">
+        <main class="">
+            <div class="aside-wrap uk-width-1-4@xl uk-width-1-4@l uk-width-1-4@m uk-width-1-3@s uk-width-1-1">
+                <div class="uk-width-1-1" style="padding-left:0;">  
+                    <a  href="member_acount.html" style="display: block;">
+                        <figure class="membership-card uk-margin-small-bottom">
+                                <div class="membership-card-detial uk-position-center">
+                                    <p class="uk-margin-small-bottom">您好</p>
+                                    <h2 class="uk-margin-remove-top uk-margin-remove-bottom">艾九天</h2>
+                                </div>
+                            
+                        </figure>
+                    </a>
+                </div>
+                <aside class=" pd-cate-wrap" >
+                    <ul class="pd-cate">
+                        <li><a href="member_file.html"><span class="pd-cate-icon icon-member-file"></span>會員資料</a></li>
+                        <li><a href="member_password.html"><span class="pd-cate-icon icon-member-password"></span>密碼設定</a></li>
+                        <li class="list-active"><a href="javascript:;"><span class="pd-cate-icon icon-member-order"></span>訂單紀錄</a></li>
+                        <li><a href="member_cupon.html"><span class="pd-cate-icon icon-member-cupon"></span>優惠券</a></li>
+                        <li><a href="member_receipt.html"><span class="pd-cate-icon icon-member-receipt"></span>發票設定</a></li>
+                    </ul>
+                    <a href="index.html" class="btns btn-log-out col-12">登出</a>
+                </aside>
+            </div>
+            <section class="uk-width-3-4@xl uk-width-3-4@l uk-width-3-4@m uk-width-2-3@s uk-width-1-1">
+                
+                <header class="uk-width-1-1 uk-margin-remove-top uk-margin-small-bottom" >
+                    <div class="header-name">
+                        <div class="header-icon icon-member-order" style="color: #222;"></div> <h3 class=" uk-margin-remove">訂單紀錄</h3>
+                    </div>
+                </header>
+                <div class="membership-info uk-padding-small uk-padding-remove-horizontal uk-padding-remove-top">
+                    <div class="pd-list-title uk-flex uk-flex-middle col-12" style="background: #333;">
+                        <div class="col-lg-7 col-md-4 col-sm-12 uk-padding-remove title-info"><p class="uk-margin-remove">商品資訊</p> </div>
+                        <div class="uk-flex uk-flrx-middle col-lg-5 col-md-4  uk-padding-remove state-list-title-wrap">
+                           <div class="col-lg-4 col-md-4 col-sm-4 uk-padding-remove title-amount"><p class="uk-margin-remove uk-text-center">金額</p> </div>
+                           <div class="col-lg-4 col-md-4 col-sm-4 uk-padding-remove title-price"><p class="uk-margin-remove uk-text-center">狀態</p> </div>
+                           <div class="col-lg-4 col-md-4 col-sm-4 uk-padding-remove title-price"><p class="uk-margin-remove uk-text-center">詳細內容</p> </div>
+                        </div>
+                    </div>
+                    <div class="uk-margin-medium-bottom membership-info-wrap" uk-grid>
+                        <div class="membership-info-table  uk-width-1-1" >
+                            <div class="pd-row ">
+                               <div class="col-lg-3 col-md-3 col-sm-3 col-4 pd-img-wrap" style="padding: 0;">
+                                    <div class="img-cover">
+                                       <img class="uk-comment-avatar" src="images/products/cover/1599028077952.jpg" width="100" height="100" alt="">
+                                    </div>
+                                    <div class="img-cover ">
+                                       <img class="uk-comment-avatar" src="images/products/cover/1599028077952.jpg" width="100" height="100" alt="">
+                                       <p class="uk-position-cover uk-margin-remove uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle uk-padding-remove uk-text-large">+2</p>
+                                    </div>
+                               </div>
+                               <div class="col-lg-9 col-md-9 col-sm-9 col-8 pd-detail-wrap uk-flex-wrap">
+                                   <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                                       <p class=" uk-margin-remove">訂單編號 : ABC00000001</p>
+                                       <p class=" uk-margin-remove">訂購日期 : 2021/08/01</p>
+                                   </div> 
+                                   <div class="col-lg-7 col-md-12 col-sm-12 col-12 state-wrap">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-6 uk-margin-remove-top uk-padding-remove state-list">
+                                            <p class="uk-margin-remove-bottom uk-text-center">NT$399</p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-6 uk-margin-remove-top uk-padding-remove state-list">
+                                            <p class="uk-margin-remove-bottom uk-text-center">未付款</p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-12 state-list-btn">
+                                            <!-- <div class=" uk-flex uk-flex-middle uk-flex-right@m uk-flex-right@l uk-flex-left@s uk-padding-remove amount-btn-wrap state-list"> -->
+                                                <a  href="javascript:;" class=" uk-input btn-verse uk-form-width-small uk-margin-remove">詳細內容</a>
+                                            <!-- </div> -->
+                                        </div>
+                                   </div>
+                               </div>
+                            </div>
+                            <div class="pd-row ">
+                               <div class="col-lg-3 col-md-3 col-sm-3 col-4 pd-img-wrap" style="padding: 0;">
+                                    <div class="img-cover">
+                                       <img class="uk-comment-avatar" src="images/products/cover/1599028077952.jpg" width="100" height="100" alt="">
+                                    </div>
+                                    <div class="img-cover ">
+                                       <img class="uk-comment-avatar" src="images/products/cover/1599028077952.jpg" width="100" height="100" alt="">
+                                       <p class="uk-position-cover uk-margin-remove uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle uk-padding-remove uk-text-large">+2</p>
+                                    </div>
+                               </div>
+                               <div class="col-lg-9 col-md-9 col-sm-9 col-8 pd-detail-wrap uk-flex-wrap">
+                                   <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                                       <p class=" uk-margin-remove">訂單編號 : ABC00000001</p>
+                                       <p class=" uk-margin-remove">訂購日期 : 2021/08/01</p>
+                                   </div> 
+                                   <div class="col-lg-7 col-md-12 col-sm-12 col-12 state-wrap">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-6 uk-margin-remove-top uk-padding-remove state-list">
+                                            <p class="uk-margin-remove-bottom uk-text-center">NT$399</p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-6 uk-margin-remove-top uk-padding-remove state-list">
+                                            <p class="uk-margin-remove-bottom uk-text-center">處理中</p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-12 state-list-btn">
+                                            <!-- <div class=" uk-flex uk-flex-middle uk-flex-right@m uk-flex-right@l uk-flex-left@s uk-padding-remove amount-btn-wrap state-list"> -->
+                                                <a  href="javascript:;" class=" uk-input btn-verse uk-form-width-small uk-margin-remove">詳細內容</a>
+                                            <!-- </div> -->
+                                        </div>
+                                   </div>
+                               </div>
+                            </div>
+                            <div class="pd-row ">
+                               <div class="col-lg-3 col-md-3 col-sm-3 col-4 pd-img-wrap" style="padding: 0;">
+                                    <div class="img-cover">
+                                       <img class="uk-comment-avatar" src="images/products/cover/1599028077952.jpg" width="100" height="100" alt="">
+                                    </div>
+                                    <div class="img-cover ">
+                                       <img class="uk-comment-avatar" src="images/products/cover/1599028077952.jpg" width="100" height="100" alt="">
+                                       <p class="uk-position-cover uk-margin-remove uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle uk-padding-remove uk-text-large">+2</p>
+                                    </div>
+                               </div>
+                               <div class="col-lg-9 col-md-9 col-sm-9 col-8 pd-detail-wrap uk-flex-wrap">
+                                   <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                                       <p class=" uk-margin-remove">訂單編號 : ABC00000001</p>
+                                       <p class=" uk-margin-remove">訂購日期 : 2021/08/01</p>
+                                   </div> 
+                                   <div class="col-lg-7 col-md-12 col-sm-12 col-12 state-wrap">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-6 uk-margin-remove-top uk-padding-remove state-list">
+                                            <p class="uk-margin-remove-bottom uk-text-center">NT$399</p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-6 uk-margin-remove-top uk-padding-remove state-list">
+                                            <p class="uk-margin-remove-bottom uk-text-center">已出貨</p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-12 state-list-btn">
+                                            <!-- <div class=" uk-flex uk-flex-middle uk-flex-right@m uk-flex-right@l uk-flex-left@s uk-padding-remove amount-btn-wrap state-list"> -->
+                                                <a  href="javascript:;" class=" uk-input btn-verse uk-form-width-small uk-margin-remove">詳細內容</a>
+                                            <!-- </div> -->
+                                        </div>
+                                   </div>
+                               </div>
+                            </div>
+                            <div class="pd-row ">
+                               <div class="col-lg-3 col-md-3 col-sm-3 col-4 pd-img-wrap" style="padding: 0;">
+                                    <div class="img-cover">
+                                       <img class="uk-comment-avatar" src="images/products/cover/1599028077952.jpg" width="100" height="100" alt="">
+                                    </div>
+                                    <div class="img-cover ">
+                                       <img class="uk-comment-avatar" src="images/products/cover/1599028077952.jpg" width="100" height="100" alt="">
+                                       <p class="uk-position-cover uk-margin-remove uk-overlay uk-overlay-default uk-flex uk-flex-center uk-flex-middle uk-padding-remove uk-text-large">+2</p>
+                                    </div>
+                               </div>
+                               <div class="col-lg-9 col-md-9 col-sm-9 col-8 pd-detail-wrap uk-flex-wrap">
+                                   <div class="col-lg-5 col-md-12 col-sm-12 col-12">
+                                       <p class=" uk-margin-remove">訂單編號 : ABC00000001</p>
+                                       <p class=" uk-margin-remove">訂購日期 : 2021/08/01</p>
+                                   </div> 
+                                   <div class="col-lg-7 col-md-12 col-sm-12 col-12 state-wrap">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-6 uk-margin-remove-top uk-padding-remove state-list">
+                                            <p class="uk-margin-remove-bottom uk-text-center">NT$399</p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-6 uk-margin-remove-top uk-padding-remove state-list">
+                                            <p class="uk-margin-remove-bottom uk-text-center">已退貨</p>
+                                        </div>
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-12 state-list-btn">
+                                            <!-- <div class=" uk-flex uk-flex-middle uk-flex-right@m uk-flex-right@l uk-flex-left@s uk-padding-remove amount-btn-wrap state-list"> -->
+                                                <a  href="javascript:;" class=" uk-input btn-verse uk-form-width-small uk-margin-remove">詳細內容</a>
+                                            <!-- </div> -->
+                                        </div>
+                                   </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-wrap uk-margin-medium-bottom" >
+                        <a href="member_acount.html" class="btns btn-verse col-lg-3 col-md-5 col-sm-12 col-12 ">回上一頁</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer class="uk-padding-remove-top">
+        <h3 class="copyright">九天民俗技藝團 版權所有 © 2021 All Rights Reserved.</h3>
+    </footer>
+    
+    <script src="js/jquery-3.5.1.compress.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
+    <script src="js/m.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+    <script src="js/tab-hide.js"></script>
+    <script src="js/anime.min.js"></script>
+    <script src="js/fit.js"></script>
+    <script src="js/gsap.js"></script>
+</body>
+</html>

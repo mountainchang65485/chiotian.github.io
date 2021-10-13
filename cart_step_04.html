@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九天購物</title>
+    <link rel="stylesheet" href="css/bootstrap_4.5.2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/m.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/anime.css">
+    <script src="js/tweenMax.min.js"></script>
+    <script src="js/all.min.js"></script>
+    <style>
+        body{ background-color: #fff; }
+        p.alert{ color: #d80000; }
+        main{display: flex;justify-content: space-between;align-items: flex-start; padding-top: 5%;}
+         @media screen and (max-width:992px) {
+               main{ padding-top:10%;}
+         }
+         @media screen and (max-width:959px) {
+               main{ padding-top:10%;}
+               .membership-id{ padding-left: 0; }
+         }
+         @media screen and (max-width:768px) {
+               main{ padding-top:10%; height: 100%;}
+         }
+        .membership-detail{ height: 100%;}
+        .membership-qrcode{ text-align: center;  display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px;}
+        .membership-cover { background: #333; padding: 20px; margin: 0; margin-bottom: 20px; border-radius: 6px;}
+        .membership-card{  background: url(images/member/bg-card.jpg)no-repeat;background-size: cover; background-position: center; overflow-y: hidden; border-radius: 6px; border: 1px solid #c4c4c4; padding-top: 50%; position: relative;}
+        .membership-card-detial{ color: #fff; text-align: center;}
+        .membership-card-detial h2{ color: #fff;}
+        .membership-info{ background-color: #fff; }
+        .membership-info-wrap{ margin-left: 0; margin-bottom: 30px;}
+        .membership-info-table{padding-right: 0px; padding-left: 0;}
+        .membership-id-btn{ padding-left: 15px; }
+        .my-name-box h2,.my-name-box p{ display: inline-block; color: #fff;}
+        td.t-content{ text-align: left; }
+        .td-title{ background: #333; color: #fff; text-align: center; max-width: 180px; width: 180px;}
+        .td-title p{ display: inline-block; }
+        .uk-flex-wrap-between{ justify-content: space-between; }
+        .color-gray-light{ color: #c4c4c4; }
+        
+        @media screen and (max-width:959px) {
+            .membership-info-wrap{ display: flex; flex-direction: column; justify-content: center; align-items: center; margin-left: 0;}
+            .membership-info-table{padding: 0;}
+         }
+        @media screen and (max-width:767px) {
+            .membership-info-wrap{ margin-bottom: 15px;}
+        }
+        @media screen and (max-width:639px) {
+            .membership-id-btn{ padding-left: 0; }
+            .membership-id-info{ margin-bottom: 15px; }
+            .uk-table tr{ display:flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 15px;}
+            .uk-table tr td{ width: 100%; }
+            td.td-title{ padding: 10px 12px; max-width: 100%; width: 100%;}
+            td.td-content{ background: #fff;}
+            .membership-info{ background-color: transparent; }
+        }
+        @media screen and (max-width:460px) {
+            .membership-id-number{flex-direction: column;}
+        }
+
+        /* SIDE MENU ========================================================*/
+        aside.pd-cate-wrap{ padding: 10px;  background-color: #fff; border-radius: 3px;}
+        .aside-wrap{padding-right: 20px;}
+        @media screen and (max-width:639px) {
+            .aside-wrap{display: none;}
+        }
+        ul.pd-cate{ padding-left: 0; }
+        ul.pd-cate li { border-bottom: 1px solid rgba(51, 51, 51, 0.15); transition: 0.3s;}
+        ul.pd-cate li a{  color: #333; padding: 16px 12px; display: block; font-family:'Noto Sans TC', sans-serif; font-weight: 400; font-size: 1rem; line-height: 1;}
+        ul.pd-cate li:hover a{ color: #E14E2D;  transition: 0.3s;}
+        ul.pd-cate li.list-active a{ color: #E14E2D;}
+        .pd-cate-icon{ margin-right:10px;font-size: 1.1rem; }
+
+        /* FORM ========================================================*/
+        input,select,.uk-checkbox, .uk-radio{ border-radius: 3px !important; }
+        .flex-md{ display: flex; justify-content: left; align-items: center; }
+        .uk-radio:checked,.uk-radio:focus{ background: url(images/icon/check-solid.svg)no-repeat,#222; background-size: 70% auto; background-position: center; }
+        .must{position: relative; }
+        .must::before{ content: '*'; position: absolute; width: 10px; height: 10px; font-size: 15px; color: #f0506e;top: 0;left:-12px;}
+        .uk-form-danger{ border-radius: 3px; margin-left: 10px; padding: 0; line-height: 1 !important; width: 60px;}
+        .uk-form-danger:hover{ background: #f0506e; color: #fff;}
+        ::placeholder { color: #222; opacity: 1; } 
+        ::-webkit-input-placeholder {  color: #222 !important; } 
+        :-ms-input-placeholder { color: #222; } 
+        ::-ms-input-placeholder { color: #222; } 
+        .sub-detial{ padding-left: 29px; margin: 0; color: #999;}
+        .uk-select:not([multiple]):not([size]){  
+            padding-right: 20px;
+            background-image: url(images/icon/dropdown.svg);
+            background-repeat: no-repeat;
+            background-size: 24px auto;
+            background-position: 98% 50%; }
+        @media (min-width: 960px){
+            .uk-form-horizontal .uk-form-label { width: 120px; margin-top: 7px; float: left; }
+            .uk-form-horizontal .uk-form-controls { margin-left: 120px; }
+        }
+        .btn-wrap{ display: flex; justify-content:center; align-items: center;}
+        @media screen and (max-width:767px) {
+            .btn-wrap{  flex-direction:column; justify-content:center; align-items: center; width: 100%; margin: auto;}
+            .conferm-box{  flex-direction:column; justify-content:center; align-items: center; width: 100%; margin: auto;}
+            .amount-btn-wrap{ margin-left: -5px; }
+        }
+        @media screen and (max-width:639px) {
+            .btn-wrap{ flex-direction:column; justify-content:center; align-items: center; width: 100%;}
+        }  
+
+        .pd-row{ display: flex; justify-content:space-between; align-items: center; padding: 15px; border-bottom: 1px solid #efefef;}
+        .pd-row *{ padding-right: 0; }
+        .info-row{display: flex; justify-content:flex-start; align-items: center;}
+        .btn-crud-wrap{ display: flex; justify-content:flex-start; align-items: center; padding: 0;}
+        .price{ text-align: end; }
+        @media screen and (max-width:768px) {
+            .pd-row{ background: #fff; }
+            .info-row{ padding: 0;}
+            .info-row-detail{ flex-direction: column; }
+            .btn-crud-wrap{ display: flex; justify-content:flex-start; align-items: center;}
+            .pd-detail-wrap{ padding-left: 0px; }
+        }  
+        @media screen and (max-width:575px) {
+            .pd-row{ margin-left: -15px; margin-right: -15px; margin-bottom: 10px; }
+        } 
+        @media screen and (max-width:480px) {
+            .pd-row{ padding:10px 15px; align-items: flex-start;}
+        }  
+
+        .uk-button-small{ padding:5px; margin-right: 5px; margin-left: 5px; width:40px; height:40px; border-radius: 3px; display: flex; flex-direction: column; justify-content: center; align-items: center;}
+        .btn-crud-wrap .uk-button-small.uk-button-danger{ margin-left:0 !important ; }
+        .pd-detail-wrap{ display: flex; justify-content: space-between; align-items: center; }
+        .pd-detail-wrap h4{ line-height: 1;margin-bottom: 5px; }
+        .pd-specs{ margin-bottom: 10px; }
+        .uk-comment-avatar{ width: 100%;}
+        .price-wrap{ justify-content: flex-end; }
+        .price-wrap h4{ text-align: end; }
+        .pd-specs li{ color: #b1b1b1; font-size: small;}
+        .step-wrap{ justify-content: space-around; position: relative;}
+        .step-box::after{ content: ''; position: absolute; left:50%;top: 15px; transform: translateX(-50%);  width: 75%; height: 1px; background: #333; z-index:0;}
+        .step-box{ display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .step-num{ width: 30px; height: 30px; border-radius: 40px; border: 1px solid #333; justify-content: center; background-color: #fff; z-index:1; }
+        .step-active{  border: 1px solid #d80000; color: #fff; background-color: #d80000;}
+        .step-info{ margin-top:5px; }
+        .break{display: none;}
+        .pd-options{ display: flex;justify-content: left; align-items: center; }
+        .pd-options-amount{ display: flex; justify-content: space-between; align-items: center; padding: 5px;  border-radius: 3px; border: none;}
+        .pd-options input[name="amount"] + label { display: flex;flex-direction: column; justify-content: center; align-items: center; cursor: pointer; width:30px;height: 30px; border-radius: 3px; margin-right: 10px;}
+        .pd-options input[name="amount"]{ display: inline-block; }  
+        .pd-options input[name="amount"] + label {margin: 0;}
+        .sum-title{ font-size: 15px; }
+        .sum-title{ text-align: right; }
+        .total-wrap{ background: #666; padding-top: 10px; padding-bottom: 10px;}
+        .total-wrap p{ color: #fff; }
+        .btn-wrap{ justify-content: space-between; }
+        .conferm-box{ justify-content: flex-end; }
+        .shop-info{ color: #333; }
+        .pd-list-title{ padding: 15px;}
+        .pd-list-title p{ color: #fff; }
+        .title-amount{ text-align: center;}
+        .title-price{ text-align: end;}
+        .finish-card{ text-align: center; align-items: center;margin-top: 30px;}
+        .finish-card .card{ background: #c4c4c4; border: none;}
+        @media screen and (max-width:767px) {
+            .pd-detail-wrap{ flex-direction: column; }
+            .price-wrap h4{ margin-top: 15px; }
+            .pd-options-amount{  padding:0 5px; }
+            .amount-num,.amount-title,.uk-form-danger{ font-size: 13px; }
+            .amount-btn-wrap button{ width: auto; height:30px; padding: 0 10px;}
+            .title-amount,.title-price{ display: none;}
+            .sum-title{ font-size: 14px; }
+        }  
+        @media screen and (max-width:575px) {
+            .pd-detail-wrap{ flex-direction: column; }
+            .price-wrap h4{ margin-top: 15px; }
+            .step-wrap{ justify-content: space-between; align-items: flex-start; }
+            .step-box{ display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start; }
+            .step-box::after{ content: ''; position: absolute; left: 0;top:12.5px; transform: unset;  width: calc(95% - 12.5px); height: 1px;}
+            .step-num{ width: 25px; height: 25px; font-size:0.95rem; }
+            .step-info{ font-size: 0.75rem; }
+            .break{display: block;}
+            .pd-options input[name="amount"] + label { width: 25px; height: 25px; }
+            .pd-options input[name="amount"] + label svg{ width: 15px; height: 15px; }
+            .amount-btn-wrap button{ width: auto; height: 25px; }
+            .amount-btn-wrap input{ height: 25px; }
+            .sum-wrap{ padding: 0; }
+            .sum-title{ text-align: left; }
+            .total-wrap{ margin-right: -15px; margin-left: -15px; padding: 10px 0px; position: relative;}
+            .total-wrap::before{ content: ''; position: absolute; width: 15px; height: 100%; background: #666; left: -15px; top: 0;}
+            .total-wrap::after{ content: ''; position: absolute; width: 15px; height: 100%; background: #666; right: -15px; top: 0;}
+        }  
+        /* SUCCESS ANIMATE ========================================================*/
+        .success-checkmark {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  position: relative;
+}
+.success-checkmark .check-icon {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: 4px solid #4CAF50;
+}
+.success-checkmark .check-icon::before {
+  top: 3px;
+  left: -2px;
+  width: 30px;
+  transform-origin: 100% 50%;
+  border-radius: 100px 0 0 100px;
+}
+.success-checkmark .check-icon::after {
+  top: 0;
+  left: 30px;
+  width: 60px;
+  transform-origin: 0 50%;
+  border-radius: 0 100px 100px 0;
+  animation: rotate-circle 4.25s ease-in;
+}
+.success-checkmark .check-icon::before, .success-checkmark .check-icon::after {
+  content: "";
+  height: 100px;
+  position: absolute;
+  background: #FFFFFF;
+  transform: rotate(-45deg);
+}
+.success-checkmark .check-icon .icon-line {
+  height: 5px;
+  background-color: #4CAF50;
+  display: block;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+}
+.success-checkmark .check-icon .icon-line.line-tip {
+  top: 46px;
+  left: 14px;
+  width: 25px;
+  transform: rotate(45deg);
+  animation: icon-line-tip 0.75s;
+}
+.success-checkmark .check-icon .icon-line.line-long {
+  top: 38px;
+  right: 8px;
+  width: 47px;
+  transform: rotate(-45deg);
+  animation: icon-line-long 0.75s;
+}
+.success-checkmark .check-icon .icon-circle {
+  top: -4px;
+  left: -4px;
+  z-index: 10;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: absolute;
+  box-sizing: content-box;
+  border: 4px solid rgba(76, 175, 80, 0.5);
+}
+.success-checkmark .check-icon .icon-fix {
+  top: 8px;
+  width: 5px;
+  left: 26px;
+  z-index: 1;
+  height: 85px;
+  position: absolute;
+  transform: rotate(-45deg);
+  background-color: #FFFFFF;
+}
+
+@keyframes rotate-circle {
+  0% {
+    transform: rotate(-45deg);
+  }
+  5% {
+    transform: rotate(-45deg);
+  }
+  12% {
+    transform: rotate(-405deg);
+  }
+  100% {
+    transform: rotate(-405deg);
+  }
+}
+@keyframes icon-line-tip {
+  0% {
+    width: 0;
+    left: 1px;
+    top: 19px;
+  }
+  54% {
+    width: 0;
+    left: 1px;
+    top: 19px;
+  }
+  70% {
+    width: 50px;
+    left: -8px;
+    top: 37px;
+  }
+  84% {
+    width: 17px;
+    left: 21px;
+    top: 48px;
+  }
+  100% {
+    width: 25px;
+    left: 14px;
+    top: 45px;
+  }
+}
+@keyframes icon-line-long {
+  0% {
+    width: 0;
+    right: 46px;
+    top: 54px;
+  }
+  65% {
+    width: 0;
+    right: 46px;
+    top: 54px;
+  }
+  84% {
+    width: 55px;
+    right: 0px;
+    top: 35px;
+  }
+  100% {
+    width: 47px;
+    right: 8px;
+    top: 38px;
+  }
+}
+    </style>
+</head>
+<body>
+  <div class="uk-navbar-dropdown pd-list-menu-dropdown">
+      <ul class="uk-nav uk-navbar-dropdown-nav" >
+          <li><a href="product-list.html">人氣商品</a></li>
+          <li><a href="product-list.html">第九屆九天盃太子極限環台賽</a></li>
+          <li><a href="product-list.html">新品推薦</a></li>
+          <li><a href="product-list.html">限量商品</a></li>
+          <li><a href="product-list.html">上衣 / T-shirt</a></li>
+          <li><a href="product-list.html">紀念小物</a></li>
+          <li><a href="product-list.html">特色送禮</a></li>
+          <li><a href="product-list.html">獨家書籍</a></li>
+          <li><a href="product-list.html">文化體驗</a></li>
+          <li><a href="product-list.html">全部商品</a></li>
+      </ul>
+  </div>
+  <div class="uk-position-fixed uk-position-top-center nav-wrap">
+      <nav class="uk-navbar-container uk-navbar-transparent boundary-align" uk-navbar>
+          <div class="uk-navbar-left">
+              <ul class="uk-navbar-nav">
+                  <li class="uk-active"><h1><a href="index.html"><img src="images/logo.png" alt="" id="main-logo"></a></h1></li>
+              </ul>
+          </div>
+          <div class="uk-navbar-center">
+              <ul class="uk-navbar-nav uk-iconnav">
+                  <li><a href="product-cate.html" id="pd-list-menu"><span>商品系列</span></a><span uk-icon="icon: chevron-down"></span></li>
+                  <li><a href="javascript:;">關於九天</a></li>
+                  <li><a href="news-list.html">最新消息</a></li>
+                  <li><a href="contact.html">聯絡我們</a></li>
+              </ul>
+          </div>
+          <div class="uk-navbar-right">
+              <ul class="uk-navbar-nav">
+                  <li class="uk-active"><a href="https://www.facebook.com/chiotian/"><span class="nav-icon icon-fb" aria-hidden="true" ></span></a></li>
+                  <li>
+                      <a href="javascript:;" class="uk-navbar-toggle"><span class="nav-icon icon-search" aria-hidden="true" ></span></a>
+                      <div class="uk-navbar-dropdown search-wrap" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav">
+          
+                          <div class="uk-grid-small uk-flex-middle" uk-grid>
+                              <div class="uk-width-expand">
+                                  <form class="uk-search uk-search-navbar uk-width-1-1">
+                                      <input class="uk-search-input" type="search" placeholder="搜尋商品" autofocus>
+                                  </form>
+                              </div>
+                              <div class="uk-width-auto">
+                                  <a class="uk-navbar-dropdown-close" href="javascript:;" uk-close></a>
+                              </div>
+                          </div>
+          
+                      </div>
+                  </li>
+                  <li>
+                      <a href="login.html"><span class="nav-icon icon-member" aria-hidden="true" ></span></a>
+                      <div class="uk-navbar-dropdown">
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+                              <li class="uk-active"><a href="login.html">會員專區</span></a></li>
+                              <li><a href="member_order.html">查看訂單</a></li>
+                              <li><a href="login.html">登入</a></li>
+                          </ul>
+                      </div>
+                  </li>
+                  <li id="cart" class="cart" data-totalitems="0"><a href="cart_step_01.html"><span class="nav-icon icon-bag" aria-hidden="true" ></span></li>
+              </ul>
+          </div>
+          <div class="uk-navbar-left side-menu burger">
+              <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="javascript:;"></a>
+          </div>
+      </nav>
+  </div>
+  
+  <div class="overlay"></div>
+  <aside class="nav-hide nav-index">
+      <div id="xx"><span uk-icon="icon: close"></span></div>
+      <div class="nav-side-box" >
+          <div class="container" style="padding: 0;">
+              <ul class="uk-navbar-nav uk-iconnav options">
+                  <li class="">
+                      <a href="product-cate.html">商品系列<span uk-icon="icon: chevron-down"></span></a>
+                      <div uk-dropdown="mode: click" >
+                          <ul class="uk-nav uk-navbar-dropdown-nav">
+                              <li class="uk-active"><a href="javascript:;">人氣商品</a></li>
+                              <li><a href="javascript:;">第九屆九天盃太子極限環台賽</a></li>
+                              <li><a href="javascript:;">新品推薦</a></li>
+                              <li><a href="javascript:;">限量商品</a></li>
+                              <li><a href="javascript:;">上衣 / T-shirt</a></li>
+                              <li><a href="javascript:;">紀念小物</a></li>
+                              <li><a href="javascript:;">特色送禮</a></li>
+                              <li><a href="javascript:;">獨家書籍</a></li>
+                              <li><a href="javascript:;">文化體驗</a></li>
+                              <li><a href="javascript:;">全部商品</a></li>
+                          </ul>
+                      </div>
+                  </li>
+                  <li class=""><a href="javascript:;">關於九天</a></li>
+                  <li class=""><a href="news-list.html">最新消息</a></li>
+                  <li class=""><a href="contact.html">聯絡我們</a></li>
+              </ul>
+              <ul class="media-wrap">
+                  <li><a href="javascript:;"><span class="nav-icon icon-facebook" aria-hidden="true" ></span></a></li>
+                  <li><a href="javascript:;"><span class="nav-icon icon-instagram" aria-hidden="true" ></span></a></li>
+                  <li><a href="javascript:;"><span class="nav-icon icon-youtube2" aria-hidden="true" ></span></a></li>
+              </ul>
+          </div>
+
+      </div>
+  </aside>
+    <header class="banner-cover uk-cover-wrap">
+        <div class="uk-cover-container uk-height-small">
+            <img src="images/banner/banner01.jpg" alt="" uk-cover>
+            <div class="title-wrap uk-position-center">
+               <h2 class="section-title">購物車</h2>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <main class="">
+            <section class=" uk-width-1-1">
+                <div class="step-wrap uk-flex uk-flex-middle">
+                    <div class="step-box">
+                        <div class="step-num   uk-flex uk-flex-middle">1</div>
+                        <p class="step-info">確認<br class="break">購物車內容</p>
+                    </div>
+                    <div class="step-box">
+                        <div class="step-num uk-flex uk-flex-middle">2</div>
+                        <p class="step-info">確認<br class="break">付款方式</p>
+                    </div>
+                    <div class="step-box">
+                        <div class="step-num uk-flex uk-flex-middle">3</div>
+                        <p class="step-info">確認<br class="break">訂單資料</p>
+                    </div>
+                    <div class="step-box">
+                        <div class="step-num step-active uk-flex uk-flex-middle">4</div>
+                        <p class="step-info">訂單成立</p>
+                    </div>
+                </div>
+                <div class="finish-card uk-flex uk-flex-column uk-flex-center">
+                    <div class="success-checkmark">
+                        <div class="check-icon">
+                          <span class="icon-line line-tip"></span>
+                          <span class="icon-line line-long"></span>
+                          <div class="icon-circle"></div>
+                          <div class="icon-fix"></div>
+                        </div>
+                      </div>
+                    <h3 style="margin-top: 20px;" >感謝您的訂購!</h3>
+                    <p>您已經完成訂購，<br>商品會在最短的時間內寄到您的手上!</p>
+                    <div class="card uk-padding-small col-lg-6 col-md-10 col-sm-12">
+                        <p class="uk-margin-remove">您的訂單編號是：2021190388484</p>
+                        <p class="uk-margin-remove">您可以到<a href="member_acount.html">會員專區</a>查詢訂單處理狀態</p>
+                    </div>
+                    <p>若有相關問題，歡迎透過官網的<a href="contact.html">聯絡九天</a>與我們聯絡。</p>
+                </div>
+                <div class="btn-wrap uk-margin-medium-bottom uk-margin-medium-top" >
+                    <div class=" col-md-12 uk-padding-remove uk-flex uk-flex-middle uk-flex-center">
+                       <a href="index.html" class="btns btn-more  col-lg-3 col-md-6 col-sm-12 col-12">繼續購物</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-box">
+                <div class=" col-lg-3 col-md-12 col-sm-12 logo-box">
+                    <div  class="col-lg-10 col-md-3 col-sm-4 col-5"><img src="images/logo-icon.png" alt=""></div>
+                </div>
+                <div class="link-boxes col-lg-9 col-md-12 col-sm-12 col-sm-12">
+                    <div class="col-md-4 col-sm-12 col-12">
+                        <ul class="box">
+                            <!-- <li class="link_name">Links</li> -->
+                            <li><a href="member_order.html">訂單查詢</a></li>
+                            <li><a href="faq.html">購物Q&A</a></li>
+                            <li><a href="member_notice.html" id="terms">會員須知</a></li>
+                            <li><a href="member_privacy.html" id="privacy" >隱私權政策</a></li> 
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <ul class="box">
+                            <li class="link_name">電話</li>
+                            <li><a href="tel:04-25653150">辦公室  04-25653150</a></li>
+                            <li><a href="tel:04-25653150">行政部門  04-25653150</a></li>
+                        </ul>
+                        <ul class="box">
+                            <li class="link_name">信箱</li>
+                            <li><a href="mailto:chiotian12@gmail.com" >chiotian12@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <ul class="box ">
+                            <li class="link_name">社群</li>
+                            <div class="media-icons">
+                                <a href="https://www.facebook.com/chiotian/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="javascript:;"><i class="fab fa-instagram"></i></a>
+                                <a href="javascript:;"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </ul>
+                        <ul class="box">
+                            <li class="link_name">地址</li>
+                            <li><a href="contact.html">42879台中市大雅區清泉路99號</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="copyright">九天民俗技藝團 版權所有 © 2021 All Rights Reserved.</h3>
+    </footer>
+        <script src="js/jquery-3.5.1.compress.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
+        <script src="js/m.js"></script>
+        <script src="js/swiper-bundle.min.js"></script>
+        <script src="js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+        <script src="js/tab-hide.js"></script>
+        <script src="js/anime.min.js"></script>
+        <script src="js/fit.js"></script>
+        <script src="js/gsap.js"></script>
+        <script>
+            $('#privacy,#terms').click(function(e) {
+              e.preventDefault();
+              this.blur(); 
+              $.get(this.href, function(html) {
+                $(html).appendTo('body').modal({
+                    fadeDuration: 100
+                });
+              });
+            });
+        </script>
+
+    
+</body>
+</html>

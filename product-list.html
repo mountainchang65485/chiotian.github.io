@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九天購物</title>
+    <link rel="stylesheet" href="css/bootstrap_4.5.2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/m.css">
+    <link rel="stylesheet" href="css/pd-list.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/anime.css">
+    <script src="js/tweenMax.min.js"></script>
+    <script src="js/all.min.js"></script>
+</head>
+<body>
+    <div class="uk-navbar-dropdown pd-list-menu-dropdown">
+        <ul class="uk-nav uk-navbar-dropdown-nav" >
+            <li><a href="product-list.html">人氣商品</a></li>
+            <li><a href="product-list.html">第九屆九天盃太子極限環台賽</a></li>
+            <li><a href="product-list.html">新品推薦</a></li>
+            <li><a href="product-list.html">限量商品</a></li>
+            <li><a href="product-list.html">上衣 / T-shirt</a></li>
+            <li><a href="product-list.html">紀念小物</a></li>
+            <li><a href="product-list.html">特色送禮</a></li>
+            <li><a href="product-list.html">獨家書籍</a></li>
+            <li><a href="product-list.html">文化體驗</a></li>
+            <li><a href="product-list.html">全部商品</a></li>
+        </ul>
+    </div>
+    <div class="uk-position-fixed uk-position-top-center nav-wrap">
+        <nav class="uk-navbar-container uk-navbar-transparent boundary-align" uk-navbar>
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><h1><a href="index.html"><img src="images/logo.png" alt="" id="main-logo"></a></h1></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-center">
+                <ul class="uk-navbar-nav uk-iconnav">
+                    <li><a href="product-cate.html" id="pd-list-menu"><span>商品系列</span></a><span uk-icon="icon: chevron-down"></span></li>
+                    <li><a href="javascript:;">關於九天</a></li>
+                    <li><a href="news-list.html">最新消息</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="https://www.facebook.com/chiotian/"><span class="nav-icon icon-fb" aria-hidden="true" ></span></a></li>
+                    <li>
+                        <a href="javascript:;" class="uk-navbar-toggle"><span class="nav-icon icon-search" aria-hidden="true" ></span></a>
+                        <div class="uk-navbar-dropdown search-wrap" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav">
+            
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand">
+                                    <form class="uk-search uk-search-navbar uk-width-1-1">
+                                        <input class="uk-search-input" type="search" placeholder="搜尋商品" autofocus>
+                                    </form>
+                                </div>
+                                <div class="uk-width-auto">
+                                    <a class="uk-navbar-dropdown-close" href="javascript:;" uk-close></a>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </li>
+                    <li>
+                        <a href="login.html"><span class="nav-icon icon-member" aria-hidden="true" ></span></a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="login.html">會員專區</span></a></li>
+                                <li><a href="member_order.html">查看訂單</a></li>
+                                <li><a href="login.html">登入</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="cart" class="cart" data-totalitems="0"><a href="cart_step_01.html"><span class="nav-icon icon-bag" aria-hidden="true" ></span></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-left side-menu burger">
+                <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="javascript:;"></a>
+            </div>
+        </nav>
+    </div>
+    <div class="overlay"></div>
+    <aside class="nav-hide nav-index">
+        <div id="xx"><span uk-icon="icon: close"></span></div>
+        <div class="nav-side-box" >
+            <div class="container" style="padding: 0;">
+                <ul class="uk-navbar-nav uk-iconnav options">
+                    <li class="">
+                        <a href="product-cate.html">商品系列<span uk-icon="icon: chevron-down"></span></a>
+                        <div uk-dropdown="mode: click" >
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="javascript:;">人氣商品</a></li>
+                                <li><a href="javascript:;">第九屆九天盃太子極限環台賽</a></li>
+                                <li><a href="javascript:;">新品推薦</a></li>
+                                <li><a href="javascript:;">限量商品</a></li>
+                                <li><a href="javascript:;">上衣 / T-shirt</a></li>
+                                <li><a href="javascript:;">紀念小物</a></li>
+                                <li><a href="javascript:;">特色送禮</a></li>
+                                <li><a href="javascript:;">獨家書籍</a></li>
+                                <li><a href="javascript:;">文化體驗</a></li>
+                                <li><a href="javascript:;">全部商品</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=""><a href="javascript:;">關於九天</a></li>
+                    <li class=""><a href="news-list.html">最新消息</a></li>
+                    <li class=""><a href="contact.html">聯絡我們</a></li>
+                </ul>
+                <ul class="media-wrap">
+                    <li><a href="javascript:;"><span class="nav-icon icon-facebook" aria-hidden="true" ></span></a></li>
+                    <li><a href="javascript:;"><span class="nav-icon icon-instagram" aria-hidden="true" ></span></a></li>
+                    <li><a href="javascript:;"><span class="nav-icon icon-youtube2" aria-hidden="true" ></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <main style="height:100%;width: 100%; overflow:hidden ;">
+        <!-- <div class="overlay"></div>
+        <aside class="nav-hide nav-index">
+            <div id="xx"><span uk-icon="icon: close"></span></div>
+            <div class="nav-side-box" >
+                <div class="container" style="padding: 0;">
+                    <ul class="uk-navbar-nav uk-iconnav options">
+                        <li class="">
+                            <a href="javascript:;">商品系列<span uk-icon="icon: chevron-down"></span></a>
+                            <div uk-dropdown="mode: click" >
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li class="uk-active"><a href="javascript:;">人氣商品</a></li>
+                                    <li><a href="#">第九屆九天盃太子極限環台賽</a></li>
+                                    <li><a href="#">新品推薦</a></li>
+                                    <li><a href="#">限量商品</a></li>
+                                    <li><a href="#">上衣 / T-shirt</a></li>
+                                    <li><a href="#">紀念小物</a></li>
+                                    <li><a href="#">特色送禮</a></li>
+                                    <li><a href="#">獨家書籍</a></li>
+                                    <li><a href="#">文化體驗</a></li>
+                                    <li><a href="#">全部商品</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class=""><a href="javascript:;">關於九天</a></li>
+                        <li class=""><a href="javascript:;">最新消息</a></li>
+                        <li class=""><a href="javascript:;">聯絡我們</a></li>
+                    </ul>
+                    <ul class="media-wrap">
+                        <li><a href="javascript:;"><span class="nav-icon icon-facebook" aria-hidden="true" ></span></a></li>
+                        <li><a href="javascript:;"><span class="nav-icon icon-instagram" aria-hidden="true" ></span></a></li>
+                        <li><a href="javascript:;"><span class="nav-icon icon-youtube2" aria-hidden="true" ></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside> -->
+        <header class="banner-cover uk-cover-wrap">
+            <div class="uk-cover-container uk-height-small">
+                <img src="images/banner/banner01.jpg" alt="" uk-cover>
+                <div class="title-wrap uk-position-center">
+                   <h2 class="section-title">人氣商品</h2>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <div class="breadcrumb">
+                <ul class="uk-breadcrumb">
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="product-cate.html">商品系列</a></li>
+                    <li class="uk-disabled"><a href="javascript:;">人氣商品</a></li>
+                </ul>
+                <div class="prev-page"><a href="product-cate.html"><span uk-icon="icon: arrow-left"></span>  回上一頁</a></div>
+            </div>
+            <div class="row">
+                <aside class="col-md-2 col-sm-3 col-12 pd-cate-wrap" >
+                    <ul class="pd-cate">
+                        <li><a href="javascript:;">所有商品</a></li>
+                        <li class="list-active"><a href="javascript:;">人氣商品</a></li>
+                        <li><a href="javascript:;">新品推薦</a></li>
+                        <li><a href="javascript:;">第九屆九天盃太子極限環台賽</a></li>
+                        <li><a href="javascript:;">上衣/T-Shirt</a></li>
+                        <li><a href="javascript:;">紀念小物</a></li>
+                        <li><a href="javascript:;">特色送禮</a></li>
+                        <li><a href="javascript:;">獨家書籍</a></li>
+                        <li><a href="javascript:;">文化體驗</a></li>
+                    </ul>
+                </aside>
+                <section class="col-md-10 col-sm-9 col-12" id="pd-list">
+                    <div class="margin-cut"  uk-filter="target: .js-filter">
+                        <div class="filter-box" >
+                            <div class="uk-inline uk-width-1-4@l uk-width-1-3@m uk-width-1-2@s uk-width-1-1">
+                                <button class="uk-button uk-button-default sort-active" type="button"><span class="sort-name">依上市時間排序</span><span uk-icon="icon: chevron-down"></span> </button>
+                                <div uk-dropdown="mode: click" class="col-12">
+                                    <button class="uk-button uk-button-default sort-option" type="button"  uk-filter-control="sort: data-price">價格由高至低</button>
+                                    <button class="uk-button uk-button-default sort-option" type="button"  uk-filter-control="sort: data-price;order: desc">價格由低至高</button>
+                                    <button class="uk-button uk-button-default sort-option" type="button"  uk-filter-control="sort: data-date">依上市時間排序</button>
+                                </div>
+                            </div>
+                            <div class="uk-inline  uk-width-1-4@l uk-width-1-3@m uk-width-1-2@s uk-width-1-1">
+                                <button class="uk-button uk-button-default show-active" type="button"><span class="show-name">顯示所有商品</span><span uk-icon="icon: chevron-down"></span></button>
+                                <div uk-dropdown="mode: click" class="col-12">
+                                    <button class="uk-button uk-button-default show-option" type="button" data-show="10">顯示10件商品</button>
+                                    <button class="uk-button uk-button-default show-option" type="button" data-show="20">顯示20件商品</button>
+                                    <button class="uk-button uk-button-default show-option" type="button" data-show="100">顯示所有商品</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 row js-filter"  uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .pd-card; delay: 300; repeat: false" >
+                            <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6" data-price="299" data-date="2018-01-03">
+                                <a href="product-detail.html">
+                                    <figure class="cover-box">
+                                        <div class="product-cover">
+                                            <img src="images/products/cover/1621667454743.jpg" alt="">
+                                        </div>
+                                        <p class="product-mark">限量</p>
+                                    </figure>
+                                    <div>
+                                        <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                        <div class="product-price-box">
+                                            <p class="product-price product-price-before">NT$399</p>
+                                            <p class="product-price product-price-discount">NT$299</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <button class="btns add-cart">加入購物車</button>
+                            </div>
+                            <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6" data-price="299" data-date="2018-01-03">
+                                <a href="product-detail.html">
+                                    <figure class="cover-box">
+                                        <div class="product-cover">
+                                            <img src="images/products/cover/1621667641186.jpg" alt="">
+                                        </div>
+                                        <p class="product-mark">限量</p>
+                                    </figure>
+                                    <div>
+                                        <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                        <div class="product-price-box">
+                                            <p class="product-price product-price-before">NT$399</p>
+                                            <p class="product-price product-price-discount">NT$299</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <button class="btns add-cart">加入購物車</button>
+                            </div>
+                            <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6" data-price="399" data-date="2018-04-03">
+                                <a href="product-detail.html">
+                                    <figure class="cover-box">
+                                        <div class="product-cover">
+                                            <img src="images/products/cover/1621667774648.jpg" alt="">
+                                        </div>
+                                        <p class="product-mark">限量</p>
+                                    </figure>
+                                    <div>
+                                        <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                        <div class="product-price-box">
+                                            <p class="product-price product-price-before">NT$399</p>
+                                            <p class="product-price product-price-discount">NT$299</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <button class="btns add-cart">加入購物車</button>
+                            </div>
+                            <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6" data-price="399" data-date="2018-07-05">
+                                <a href="product-detail.html">
+                                    <figure class="cover-box">
+                                        <div class="product-cover">
+                                            <img src="images/products/cover/1621667774648.jpg" alt="">
+                                        </div>
+                                        <p class="product-mark">限量</p>
+                                    </figure>
+                                    <div>
+                                        <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                        <div class="product-price-box">
+                                            <p class="product-price product-price-before">NT$399</p>
+                                            <p class="product-price product-price-discount">NT$299</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <button class="btns add-cart">加入購物車</button>
+                            </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6" data-price="499" data-date="2018-02-21">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1621667959468.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6" data-price="599" data-date="2019-09-03">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1605576540123.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="699" data-date="2020-01-03">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1605576424789.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+
+
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                    <div class="pd-card product-card col-lg-3 col-md-4 col-sm-6 col-6"  data-price="299" data-date="2021-08-31">
+                        <a href="product-detail.html">
+                            <figure class="cover-box">
+                                <div class="product-cover">
+                                    <img src="images/products/cover/1600136594926.jpg" alt="">
+                                </div>
+                                <p class="product-mark">限量</p>
+                            </figure>
+                            <div>
+                                <h3 class="product-name">第九屆九天盃太子極限環台賽 – 紀念毛巾</h3>
+                                <div class="product-price-box">
+                                    <p class="product-price product-price-before">NT$399</p>
+                                    <p class="product-price product-price-discount">NT$299</p>
+                                </div>
+                            </div>
+                        </a>
+                        <button class="btns add-cart">加入購物車</button>
+                    </div>
+                        </div>
+                <ul class="uk-pagination uk-flex-center">
+                    <li><a href="#"><span uk-pagination-previous></span></a></li>
+                    <li class="uk-active pagination-item"><a href="#">1</a></li>
+                    <li class="uk-disabled"><span>...</span></li>
+                    <li class=" pagination-item"><a href="#">5</a></li>
+                    <li class=" pagination-item"><a href="#">6</a></li>
+                    <li class=" pagination-item"><a href="#">7</a></li>
+                    <li class=" pagination-item"><a href="#">8</a></li>
+                    <li><a href="#"><span uk-pagination-next></span></a></li>
+                </ul>
+        
+                    </div>
+                </section>
+    
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="footer-box">
+                    <div class=" col-lg-3 col-md-12 col-sm-12 logo-box">
+                        <div  class="col-lg-10 col-md-3 col-sm-4 col-5"><img src="images/logo-icon.png" alt=""></div>
+                    </div>
+                    <div class="link-boxes col-lg-9 col-md-12 col-sm-12 col-sm-12">
+                        <div class="col-md-4 col-sm-12 col-12">
+                            <ul class="box">
+                                <!-- <li class="link_name">Links</li> -->
+                                <li><a href="javascript:;">訂單查詢</a></li>
+                                <li><a href="faq.html">購物Q&A</a></li>
+                                <li><a href="member_notice.html" id="terms">會員須知</a></li>
+                                <li><a href="member_privacy.html" id="privacy" >隱私權政策</a></li> 
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <ul class="box">
+                                <li class="link_name">電話</li>
+                                <li><a href="#">辦公室  04-25653150</a></li>
+                                <li><a href="#">行政部門  04-25653150</a></li>
+                            </ul>
+                            <ul class="box">
+                                <li class="link_name">信箱</li>
+                                <li><a href="#">chiotian12@gmail.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 col-sm-6 col-12">
+                            <ul class="box ">
+                                <li class="link_name">社群</li>
+                                <div class="media-icons">
+                                    <a href="https://www.facebook.com/chiotian/"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="javascript:;"><i class="fab fa-instagram"></i></a>
+                                    <a href="javascript:;"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </ul>
+                            <ul class="box">
+                                <li class="link_name">地址</li>
+                                <li><a href="#">42879台中市大雅區清泉路99號</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3 class="copyright">九天民俗技藝團 版權所有 © 2021 All Rights Reserved.</h3>
+        </footer>
+    </main>
+    <script src="js/jquery-3.5.1.compress.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
+    <script src="js/m.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+    <script src="js/tab-hide.js"></script>
+    <script src="js/anime.min.js"></script>
+    <script src="js/fit.js"></script>
+    <script src="js/gsap.js"></script>
+    <script src="js/all.min.js"></script>
+    <script>
+        $('.sort-option').click(function(){
+            var sort_now = $(this).text().toString();
+            console.log(sort_now)
+            $('.sort-name').text(sort_now);
+        });
+        $('.show-option').click(function(){
+            var show_now = $(this).text().toString(),
+                show_num = $(this).data('show').toString();
+            $('.show-name').text(show_now);
+            $('.pd-card').removeClass('pd-hide').eq(show_num - 1).nextAll().addClass('pd-hide');
+        });
+        $('#privacy,#terms').click(function(e) {
+          e.preventDefault();
+          this.blur(); 
+          $.get(this.href, function(html) {
+            $(html).appendTo('body').modal({
+                fadeDuration: 100
+            });
+          });
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九天購物</title>
+    <link rel="stylesheet" href="css/bootstrap_4.5.2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/m.css">
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/anime.css">
+    <script src="js/tweenMax.min.js"></script>
+</head>
+<body>
+    <div class="uk-navbar-dropdown pd-list-menu-dropdown">
+        <ul class="uk-nav uk-navbar-dropdown-nav" >
+            <li><a href="product-list.html">人氣商品</a></li>
+            <li><a href="product-list.html">第九屆九天盃太子極限環台賽</a></li>
+            <li><a href="product-list.html">新品推薦</a></li>
+            <li><a href="product-list.html">限量商品</a></li>
+            <li><a href="product-list.html">上衣 / T-shirt</a></li>
+            <li><a href="product-list.html">紀念小物</a></li>
+            <li><a href="product-list.html">特色送禮</a></li>
+            <li><a href="product-list.html">獨家書籍</a></li>
+            <li><a href="product-list.html">文化體驗</a></li>
+            <li><a href="product-list.html">全部商品</a></li>
+        </ul>
+    </div>
+    <div class="uk-position-fixed uk-position-top-center nav-wrap">
+        <nav class="uk-navbar-container uk-navbar-transparent boundary-align" uk-navbar>
+            <div class="uk-navbar-left">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><h1><a href="index.html"><img src="images/logo.png" alt="" id="main-logo"></a></h1></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-center">
+                <ul class="uk-navbar-nav uk-iconnav">
+                    <li><a href="product-cate.html" id="pd-list-menu"><span>商品系列</span></a><span uk-icon="icon: chevron-down"></span></li>
+                    <li><a href="javascript:;">關於九天</a></li>
+                    <li><a href="news-list.html">最新消息</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li class="uk-active"><a href="https://www.facebook.com/chiotian/"><span class="nav-icon icon-fb" aria-hidden="true" ></span></a></li>
+                    <li>
+                        <a href="javascript:;" class="uk-navbar-toggle"><span class="nav-icon icon-search" aria-hidden="true" ></span></a>
+                        <div class="uk-navbar-dropdown search-wrap" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav">
+            
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand">
+                                    <form class="uk-search uk-search-navbar uk-width-1-1">
+                                        <input class="uk-search-input" type="search" placeholder="搜尋商品" autofocus>
+                                    </form>
+                                </div>
+                                <div class="uk-width-auto">
+                                    <a class="uk-navbar-dropdown-close" href="javascript:;" uk-close></a>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </li>
+                    <li>
+                        <a href="login.html"><span class="nav-icon icon-member" aria-hidden="true" ></span></a>
+                        <div class="uk-navbar-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="login.html">會員專區</span></a></li>
+                                <li><a href="member_order.html">查看訂單</a></li>
+                                <li><a href="login.html">登入</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li id="cart" class="cart" data-totalitems="0"><a href="cart_step_01.html"><span class="nav-icon icon-bag" aria-hidden="true" ></span></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-left side-menu burger">
+                <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="javascript:;"></a>
+            </div>
+        </nav>
+    </div>
+    <div class="overlay"></div>
+    <aside class="nav-hide nav-index">
+        <div id="xx"><span uk-icon="icon: close"></span></div>
+        <div class="nav-side-box" >
+            <div class="container" style="padding: 0;">
+                <ul class="uk-navbar-nav uk-iconnav options">
+                    <li class="">
+                        <a href="product-cate.html">商品系列<span uk-icon="icon: chevron-down"></span></a>
+                        <div uk-dropdown="mode: click" >
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li class="uk-active"><a href="javascript:;">人氣商品</a></li>
+                                <li><a href="javascript:;">第九屆九天盃太子極限環台賽</a></li>
+                                <li><a href="javascript:;">新品推薦</a></li>
+                                <li><a href="javascript:;">限量商品</a></li>
+                                <li><a href="javascript:;">上衣 / T-shirt</a></li>
+                                <li><a href="javascript:;">紀念小物</a></li>
+                                <li><a href="javascript:;">特色送禮</a></li>
+                                <li><a href="javascript:;">獨家書籍</a></li>
+                                <li><a href="javascript:;">文化體驗</a></li>
+                                <li><a href="javascript:;">全部商品</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=""><a href="javascript:;">關於九天</a></li>
+                    <li class=""><a href="news-list.html">最新消息</a></li>
+                    <li class=""><a href="contact.html">聯絡我們</a></li>
+                </ul>
+                <ul class="media-wrap">
+                    <li><a href="javascript:;"><span class="nav-icon icon-facebook" aria-hidden="true" ></span></a></li>
+                    <li><a href="javascript:;"><span class="nav-icon icon-instagram" aria-hidden="true" ></span></a></li>
+                    <li><a href="javascript:;"><span class="nav-icon icon-youtube2" aria-hidden="true" ></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <header class="banner-cover uk-cover-wrap">
+        <div class="uk-cover-container uk-height-small">
+            <img src="images/banner/banner01.jpg" alt="" uk-cover>
+            <div class="title-wrap uk-position-center">
+               <h2 class="section-title">最新消息</h2>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="breadcrumb">
+            <ul class="uk-breadcrumb">
+                <li><a href="index.html">首頁</a></li>
+                <li class="uk-disabled"><a href="javascript:;">最新消息</a></li>
+                <li class="uk-disabled"><a href="javascript:;">葫蘆墩慶開館迎新年 九天《歲末炫音鼓舞祭》震憾登場</a></li>
+            </ul>
+            <div class="prev-page"><a href="news-list.html"><span uk-icon="icon: arrow-left"></span>  回上一頁</a></div>
+        </div>
+        <div  id="news">
+            <section class="col-12 uk-padding-remove">
+                <div class="article-list-wrap">
+                    <article class="col-12 uk-padding-remove article-wrap">
+                        <div class="title-box">
+                            <h2 class="main-title">葫蘆墩慶開館迎新年 九天《歲末炫音鼓舞祭》震憾登場</h2>
+                            <p class="update-date">2021-01-20</p>
+                        </div>
+                        <div class="main-paragraph">
+                            <figure>
+                                <img src="images/news/50766635316_5a0eb1800c_o.jpg" alt="">
+                            </figure>
+                            <p>
+                                在地傑出團隊九天民俗技藝團，今晚於葫蘆墩文化中心盛大演出《歲末炫音鼓舞祭》，DJ Code的電子音樂，雙舞臺的壯觀場面，結合鼓陣、家將、神偶，及爵劇影色舞團融合東方美學元素的戰舞，吸引近三千名民眾觀賞一場充滿歡慶派對氛圍的奇幻廟會電音體驗。
+                                <br><br>
+                                立委江啟臣、市議員張瀞分、陳本添議員服務處到場參與，文化局張大春局長代表盧秀燕市長致詞表示，葫蘆墩文化中心設立近40年，是中部歷史最悠久的公有藝文場館，今年市府爭取預算完成演奏廳修繕工程，邀請國際知名的九天技藝團前來演出，將來持續邀請優質團隊在山城演出。
+                                <br><br>
+                                節目開場九天推出磅礡震撼的全新曲目「氣吞天下」，彷若雷嗚的激昂能量演譯出風雲變幻、層次豐富的雄偉氣勢震懾全場，並安排與DJ Code Wu合創的「戰鼓炫音」，成功創新觀眾對於陣頭以及電音的想像。
+                                <br><br>
+                                結合信仰內涵與視覺張力的眾將出行，塑造家將的現代風貌，最後以驚蟄雷電劈天的「御天戰鼓」為圓滿壓軸，傳達向上天祈福美好寓意，並祈願今年平安圓滿結束，一起迎向嶄新的2021年。此次演出空間為戶外場地，但因應市府防疫措施，所有參與活動民眾全程配戴口罩觀賞演出。
+                            </p>
+
+                        </div>
+                        
+                <div class="share">
+                    <p>分享文章</p> <a href="javascript:;" class="share-media-line"><i class="fab fa-line"></i></a> <a href="javascript:;" class="share-media-fb"><i class="fab fa-facebook-square"></i></a>  
+                 </div>    
+                    </article>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-box">
+                <div class=" col-lg-3 col-md-12 col-sm-12 logo-box">
+                    <div  class="col-lg-10 col-md-3 col-sm-4 col-5"><img src="images/logo-icon.png" alt=""></div>
+                </div>
+                <div class="link-boxes col-lg-9 col-md-12 col-sm-12 col-sm-12">
+                    <div class="col-md-4 col-sm-12 col-12">
+                        <ul class="box">
+                            <!-- <li class="link_name">Links</li> -->
+                            <li><a href="javascript:;">訂單查詢</a></li>
+                            <li><a href="faq.html">購物Q&A</a></li>
+                            <li><a href="member_notice.html" id="terms">會員須知</a></li>
+                            <li><a href="member_privacy.html" id="privacy" >隱私權政策</a></li> 
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <ul class="box">
+                            <li class="link_name">電話</li>
+                            <li><a href="#">辦公室  04-25653150</a></li>
+                            <li><a href="#">行政部門  04-25653150</a></li>
+                        </ul>
+                        <ul class="box">
+                            <li class="link_name">信箱</li>
+                            <li><a href="#">chiotian12@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <ul class="box ">
+                            <li class="link_name">社群</li>
+                            <div class="media-icons">
+                                <a href="https://www.facebook.com/chiotian/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="javascript:;"><i class="fab fa-instagram"></i></a>
+                                <a href="javascript:;"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </ul>
+                        <ul class="box">
+                            <li class="link_name">地址</li>
+                            <li><a href="#">42879台中市大雅區清泉路99號</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="copyright">九天民俗技藝團 版權所有 © 2021 All Rights Reserved.</h3>
+    </footer>
+    <script src="js/jquery-3.5.1.compress.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
+    <script src="js/m.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.2/dist/js/uikit-icons.min.js"></script>
+    <script src="js/tab-hide.js"></script>
+    <script src="js/anime.min.js"></script>
+    <script src="js/fit.js"></script>
+    <script src="js/gsap.js"></script>
+    <script src="js/all.min.js"></script>
+    <script>
+        $('#privacy,#terms').click(function(e) {
+          e.preventDefault();
+          this.blur(); 
+          $.get(this.href, function(html) {
+            $(html).appendTo('body').modal({
+                fadeDuration: 100
+            });
+          });
+        });
+    </script>
+</body>
+</html>
