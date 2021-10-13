@@ -20,43 +20,59 @@
 <body>
     <div class="uk-navbar-dropdown pd-list-menu-dropdown">
         <ul class="uk-nav uk-navbar-dropdown-nav" >
-            <li><a href="javascript:;">人氣商品</a></li>
-            <li><a href="#">第九屆九天盃太子極限環台賽</a></li>
-            <li><a href="#">新品推薦</a></li>
-            <li><a href="#">限量商品</a></li>
-            <li><a href="#">上衣 / T-shirt</a></li>
-            <li><a href="#">紀念小物</a></li>
-            <li><a href="#">特色送禮</a></li>
-            <li><a href="#">獨家書籍</a></li>
-            <li><a href="#">文化體驗</a></li>
-            <li><a href="#">全部商品</a></li>
+            <li><a href="product-list.html">人氣商品</a></li>
+            <li><a href="product-list.html">第九屆九天盃太子極限環台賽</a></li>
+            <li><a href="product-list.html">新品推薦</a></li>
+            <li><a href="product-list.html">限量商品</a></li>
+            <li><a href="product-list.html">上衣 / T-shirt</a></li>
+            <li><a href="product-list.html">紀念小物</a></li>
+            <li><a href="product-list.html">特色送禮</a></li>
+            <li><a href="product-list.html">獨家書籍</a></li>
+            <li><a href="product-list.html">文化體驗</a></li>
+            <li><a href="product-list.html">全部商品</a></li>
         </ul>
     </div>
     <div class="uk-position-fixed uk-position-top-center nav-wrap">
         <nav class="uk-navbar-container uk-navbar-transparent boundary-align" uk-navbar>
             <div class="uk-navbar-left">
                 <ul class="uk-navbar-nav">
-                    <li class="uk-active"><h1><a href="index.html"><img src="images/logo.png" alt="" id="main-logo"></a></h1></li>
+                    <li class="uk-active"><h1><a href="javascript:;"><img src="images/logo.png" alt="" id="main-logo"></a></h1></li>
                 </ul>
             </div>
             <div class="uk-navbar-center">
                 <ul class="uk-navbar-nav uk-iconnav">
-                    <li><a href="javascript:;" id="pd-list-menu"><span>商品系列</span><span uk-icon="icon: chevron-down"></span></a></li>
-                    <li><a href="#">關於九天</a></li>
-                    <li><a href="#">最新消息</a></li>
-                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="product-cate.html" id="pd-list-menu"><span>商品系列</span></a><span uk-icon="icon: chevron-down"></span></li>
+                    <li><a href="javascript:;">關於九天</a></li>
+                    <li><a href="news-list.html">最新消息</a></li>
+                    <li><a href="contact.html">聯絡我們</a></li>
                 </ul>
             </div>
             <div class="uk-navbar-right">
                 <ul class="uk-navbar-nav">
-                    <li class="uk-active"><a href="javascript:;"><span class="nav-icon icon-fb" aria-hidden="true" ></span></a></li>
-                    <li><a href="javascript:;"><span class="nav-icon icon-search" aria-hidden="true" ></span></a></li>
+                    <li class="uk-active"><a href="https://www.facebook.com/chiotian/"><span class="nav-icon icon-fb" aria-hidden="true" ></span></a></li>
+                    <li>
+                        <a href="javascript:;" class="uk-navbar-toggle"><span class="nav-icon icon-search" aria-hidden="true" ></span></a>
+                        <div class="uk-navbar-dropdown search-wrap" uk-drop="mode: click; cls-drop: uk-navbar-dropdown; boundary: !nav">
+            
+                            <div class="uk-grid-small uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand">
+                                    <form class="uk-search uk-search-navbar uk-width-1-1">
+                                        <input class="uk-search-input" type="search" placeholder="搜尋商品" autofocus>
+                                    </form>
+                                </div>
+                                <div class="uk-width-auto">
+                                    <a class="uk-navbar-dropdown-close" href="javascript:;" uk-close></a>
+                                </div>
+                            </div>
+            
+                        </div>
+                    </li>
                     <li>
                         <a href="login.html"><span class="nav-icon icon-member" aria-hidden="true" ></span></a>
                         <div class="uk-navbar-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="login.html">會員專區</span></a></li>
-                                <li><a href="javascript:;">查看訂單</a></li>
+                                <li><a href="member_order.html">查看訂單</a></li>
                                 <li><a href="login.html">登入</a></li>
                             </ul>
                         </div>
@@ -69,6 +85,7 @@
             </div>
         </nav>
     </div>
+    
     <div class="overlay"></div>
     <aside class="nav-hide nav-index">
         <div id="xx"><span uk-icon="icon: close"></span></div>
@@ -76,25 +93,25 @@
             <div class="container" style="padding: 0;">
                 <ul class="uk-navbar-nav uk-iconnav options">
                     <li class="">
-                        <a href="javascript:;">商品系列<span uk-icon="icon: chevron-down"></span></a>
+                        <a href="product-cate.html">商品系列<span uk-icon="icon: chevron-down"></span></a>
                         <div uk-dropdown="mode: click" >
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li class="uk-active"><a href="javascript:;">人氣商品</a></li>
-                                <li><a href="#">第九屆九天盃太子極限環台賽</a></li>
-                                <li><a href="#">新品推薦</a></li>
-                                <li><a href="#">限量商品</a></li>
-                                <li><a href="#">上衣 / T-shirt</a></li>
-                                <li><a href="#">紀念小物</a></li>
-                                <li><a href="#">特色送禮</a></li>
-                                <li><a href="#">獨家書籍</a></li>
-                                <li><a href="#">文化體驗</a></li>
-                                <li><a href="#">全部商品</a></li>
+                                <li><a href="javascript:;">第九屆九天盃太子極限環台賽</a></li>
+                                <li><a href="javascript:;">新品推薦</a></li>
+                                <li><a href="javascript:;">限量商品</a></li>
+                                <li><a href="javascript:;">上衣 / T-shirt</a></li>
+                                <li><a href="javascript:;">紀念小物</a></li>
+                                <li><a href="javascript:;">特色送禮</a></li>
+                                <li><a href="javascript:;">獨家書籍</a></li>
+                                <li><a href="javascript:;">文化體驗</a></li>
+                                <li><a href="javascript:;">全部商品</a></li>
                             </ul>
                         </div>
                     </li>
                     <li class=""><a href="javascript:;">關於九天</a></li>
-                    <li class=""><a href="javascript:;">最新消息</a></li>
-                    <li class=""><a href="javascript:;">聯絡我們</a></li>
+                    <li class=""><a href="news-list.html">最新消息</a></li>
+                    <li class=""><a href="contact.html">聯絡我們</a></li>
                 </ul>
                 <ul class="media-wrap">
                     <li><a href="javascript:;"><span class="nav-icon icon-facebook" aria-hidden="true" ></span></a></li>
