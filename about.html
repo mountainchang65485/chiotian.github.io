@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>九天購物</title>
     <link rel="stylesheet" href="css/bootstrap_4.5.2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <link rel="stylesheet" href="css/uikit.min.css" />
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/m.css">
-    <link rel="stylesheet" href="css/pd-cate.css">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/article-list.css">
+    <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/anime.css">
     <script src="js/tweenMax.min.js"></script>
@@ -85,7 +86,6 @@
             </div>
         </nav>
     </div>
-    
     <div class="overlay"></div>
     <aside class="nav-hide nav-index">
         <div id="xx"><span uk-icon="icon: close"></span></div>
@@ -125,7 +125,7 @@
         <div class="uk-cover-container uk-height-small">
             <img src="images/banner/banner01.jpg" alt="" uk-cover>
             <div class="title-wrap uk-position-center">
-               <h2 class="section-title">聯絡我們</h2>
+               <h2 class="section-title">最新消息</h2>
             </div>
         </div>
     </header>
@@ -133,88 +133,116 @@
         <div class="breadcrumb">
             <ul class="uk-breadcrumb">
                 <li><a href="index.html">首頁</a></li>
-                <li class="uk-disabled"><span>聯絡我們</span></li>
+                <li class="uk-disabled"><a href="javascript:;">最新消息</a></li>
             </ul>
+            <div class="prev-page"><a href="history.go(-1)"><span uk-icon="icon: arrow-left"></span>  回上一頁</a></div>
         </div>
-        <section id="contact-wrap" uk-scrollspy="cls: uk-animation-fade; target: .cate-cover; delay: 300; repeat: false">
-            <div class="link-boxes col-lg-12 col-md-12 col-sm-12 col-sm-12">
-                <div class="col-md-4 col-sm-12 col-12 uk-padding-remove">
-                    <ul class="box">
-                        <li class="link_name">電話</li>
-                        <li>
-                            <ul class="office-phone">
-                                <li><a href="tel:04-25653150"><strong class="">04-25653150</strong></a></li>
-                            </ul>
+        <div  id="news">
+            <section class="col-12 uk-padding-remove">
+                <div class="margin-cut"  uk-filter="target: .js-filter">
+                    <div class="filter-box" style=" margin-right: -20px;" >
+                        <ul class="uk-width-1-2@l uk-width-2-3@m uk-width-1-1@s uk-width-1-1 row uk-padding-remove " style=" margin-left: -10px;">
+                            <li class="uk-margin-small-bottom"><button class="uk-button uk-button-default uk-active" type="button" uk-filter-control><span class="sort-name">所有文章</span></button></li>
+                            <li class="uk-margin-small-bottom"><button class="uk-button uk-button-default" type="button" uk-filter-control="[data-article='news']"><span class="show-name">最新消息</span></button></li>
+                            <li class="uk-margin-small-bottom"><button class="uk-button uk-button-default" type="button" uk-filter-control="[data-article='event']"><span class="show-name">活動資訊</span></button></li>
+                            <li class="uk-margin-small-bottom"><button class="uk-button uk-button-default" type="button" uk-filter-control="[data-article='report']"><span class="show-name">媒體報導</span></button></li>
+                            <li class="uk-margin-small-bottom"><button class="uk-button uk-button-default" type="button" uk-filter-control="[data-article='report']"><span class="show-name">媒體報導</span></button></li>
                         </li>
-                    </ul>
-                    <ul class="box">
-                        <li class="link_name">信箱</li>
-                        <li><a href="mailto:chiotian12@gmail.com">chiotian12@gmail.com</a></li>
-                    </ul>
-                    <ul class="box">
-                        <li class="link_name">地址</li>
-                        <li><a href="#map">42879台中市大雅區清泉路99號</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-8 col-sm-12 col-12 form-section">
-                    <ul class="box ">
-                        <li class="link_name uk-margin-medium-bottom">聯絡我們</li>
-                        <div class="form-wrap">
-                            <form action="">
-                                <div class="form-row col-12 uk-padding-remove ">
-                                    <div class="f-title col-md-2 col-12 uk-padding-remove"><label for="fname">姓名</label></div>
-                                    <div class="f-input col-md-10 col-12 uk-padding-remove"><input type="text" id="fname" name="fname"></div>
-                                </div>
-                                <div class="form-row col-12 uk-padding-remove">
-                                    <div class="f-title col-md-2 col-12 uk-padding-remove"><label for="fname">電話</label></div>
-                                    <div class="f-input col-md-10 col-12 uk-padding-remove"><input type="text" id="fname" name="fname"></div>
-                                </div>
-                                <div class="form-row col-12 uk-padding-remove">
-                                    <div class="f-title col-md-2 col-12 uk-padding-remove"><label for="fname">E-MAIL</label></div>
-                                    <div class="f-input col-md-10 col-12 uk-padding-remove"><input type="text" id="fname" name="fname"></div>
-                                </div>
-                                <div class="form-row col-12 uk-padding-remove">
-                                    <div class="f-title col-md-2 col-12 uk-padding-remove"><label for="fsubjec">洽談事項</label></div>
-                                    <div class="f-input col-md-10 col-12 uk-padding-remove">
-                                        <select name="subjec" id="fsubjec">
-                                            <option value="subjec-01">合作相關</option>
-                                            <option value="subjec-02">活動問題</option>
-                                            <option value="subjec-03">表演邀約</option>
-                                            <option value="subjec-04">其他</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-row col-12 uk-padding-remove">
-                                    <div class="f-title col-md-2 col-12 uk-padding-remove"><label for="ftitle">主旨</label></div>
-                                    <div class="f-input col-md-10 col-12 uk-padding-remove"><input type="text" id="ftitle" name="ftitle"></div>
-                                </div>
-                                <div class="form-row col-12 uk-padding-remove">
-                                    <div class="f-title col-md-2 col-12 uk-padding-remove"><label for="fcontent">主旨</label></div>
-                                    <div class="f-input col-md-10 col-12 uk-padding-remove">
-                                        <textarea name="fcontent" id="fcontent"  rows="5"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-row col-12 uk-padding-remove">
-                                    <div class="f-title col-md-2 col-12 uk-padding-remove"><label for=""></label></div>
-                                    <div class="f-input col-md-10 col-12 uk-padding-remove">
-                                        <input class="btn-verse btn-more-w" type="submit" value="確認送出">
-                                    </div>
-                                </div>
-                            </form>
-
+                    </div>
+                    <div class="time-list-wrap">
+                        <div class="col-12 js-filter uk-padding-remove"  uk-scrollspy="cls: uk-animation-slide-bottom-small; target: .card-wrap; delay: 300; repeat: false" >  
+                            <!-- The Timeline -->
+                            <ul class="timeline">
+                            	<li>
+                            		<div class="direction-r">
+                            			<div class="flag-wrapper">
+                                            <div class="flag">
+                                                <div class="flag-cover">
+                                                    <img src="images/about/14.png" alt="" class="img-radius">
+                                                </div>
+                                                <div class="show-title">
+                                                    <p class="time-wrapper"><span class="time">2020</span></p>
+                                                    <h3>蓄勢待發</h3>
+                                                    <div class="desc"><a href="javascript:;">2020年政鈺機械機械尾牙演出...More</a></div>
+                                                </div>
+                                            </div>
+                            			</div>
+                            		</div>
+                            	</li>
+                            	<li>
+                            		<div class="direction-l">
+                            			<div class="flag-wrapper">
+                            				<span class="flag">Apple Inc.</span>
+                            				<span class="time-wrapper"><span class="time">2011 - 2013</span></span>
+                            			</div>
+                            			<div class="desc">My first employer. All the stuff I've learned and projects I've been working on.</div>
+                            		</div>
+                            	</li>
+                            	<li>
+                            		<div class="direction-r">
+                            			<div class="flag-wrapper">
+                            				<span class="flag">Harvard University</span>
+                            				<span class="time-wrapper"><span class="time">2008 - 2011</span></span>
+                            			</div>
+                            			<div class="desc">A description of all the lectures and courses I have taken and my final degree?</div>
+                            		</div>
+                            	</li>
+                            </ul>
                         </div>
-                    </ul>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="footer-box">
+                <div class=" col-lg-3 col-md-12 col-sm-12 logo-box">
+                    <div  class="col-lg-10 col-md-3 col-sm-4 col-5"><img src="images/logo-icon.png" alt=""></div>
+                </div>
+                <div class="link-boxes col-lg-9 col-md-12 col-sm-12 col-sm-12">
+                    <div class="col-md-4 col-sm-12 col-12">
+                        <ul class="box">
+                            <!-- <li class="link_name">Links</li> -->
+                            <li><a href="javascript:;">訂單查詢</a></li>
+                            <li><a href="faq.html">購物Q&A</a></li>
+                            <li><a href="member_notice.html" id="terms">會員須知</a></li>
+                            <li><a href="member_privacy.html" id="privacy" >隱私權政策</a></li> 
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <ul class="box">
+                            <li class="link_name">電話</li>
+                            <li><a href="#">辦公室  04-25653150</a></li>
+                            <li><a href="#">行政部門  04-25653150</a></li>
+                        </ul>
+                        <ul class="box">
+                            <li class="link_name">信箱</li>
+                            <li><a href="#">chiotian12@gmail.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12">
+                        <ul class="box ">
+                            <li class="link_name">社群</li>
+                            <div class="media-icons">
+                                <a href="https://www.facebook.com/chiotian/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="javascript:;"><i class="fab fa-instagram"></i></a>
+                                <a href="javascript:;"><i class="fab fa-youtube"></i></a>
+                            </div>
+                        </ul>
+                        <ul class="box">
+                            <li class="link_name">地址</li>
+                            <li><a href="#">42879台中市大雅區清泉路99號</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </section>
-    </div>
-    <div id="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3638.438556832354!2d120.60068381482502!3d24.2264354843569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3469143387a8e841%3A0xa72ef9ed73397a78!2zNDI45Y-w5Lit5biC5aSn6ZuF5Y2A5riF5rOJ6LevOTnomZ8!5e0!3m2!1szh-TW!2stw!4v1633125138094!5m2!1szh-TW!2stw" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-    <footer class="uk-padding-remove-top">
-        <h3 class="copyright uk-margin-remove-top">九天民俗技藝團 版權所有 © 2021 All Rights Reserved.</h3>
+        </div>
+        <h3 class="copyright">九天民俗技藝團 版權所有 © 2021 All Rights Reserved.</h3>
     </footer>
     <script src="js/jquery-3.5.1.compress.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js"></script>
     <script src="js/m.js"></script>
     <script src="js/slick.min.js"></script>
     <script src="js/uikit.min.js"></script>
@@ -224,5 +252,16 @@
     <script src="js/fit.js"></script>
     <script src="js/gsap.js"></script>
     <script src="js/all.min.js"></script>
+    <script>
+        $('#privacy,#terms').click(function(e) {
+          e.preventDefault();
+          this.blur(); 
+          $.get(this.href, function(html) {
+            $(html).appendTo('body').modal({
+                fadeDuration: 100
+            });
+          });
+        });
+    </script>
 </body>
 </html>
